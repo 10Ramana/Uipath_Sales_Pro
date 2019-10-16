@@ -1,0 +1,17 @@
+{
+"AccountCount":6,
+"filePath":"E:/SalesProWorkSpace/SalesProWork_Space/SalesProFields - Accounts.csv",
+"SalesProPath":"E:/SalesProWorkSpace/SalesProWork_Space/SalesProColumns(1).xlsx",
+"Contact":{
+	"filePath":"E:/SalesProWorkSpace/SalesProWork_Space/SalesProFields - Contacts.csv"
+},
+"Tracking":{
+	"filePath":"E:/SalesProWorkSpace/SalesProWork_Space/SalesProFields - Tracking.csv"
+},
+"Group":{
+	"filePath":"E:/SalesProWorkSpace/SalesProWork_Space/SalesProFields - Group.csv"
+},
+"Function":{
+	"filePath":"E:/SalesProWorkSpace/SalesProWork_Space/SalesProFields - Function.csv"
+}
+}
