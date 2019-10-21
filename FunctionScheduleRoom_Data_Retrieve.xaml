@@ -8,7 +8,7 @@
   <sap:VirtualizedContainerService.HintSize>262,203</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>FunctionScheduleRoom_Data_Retrieve_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="21">
+    <scg:List x:TypeArguments="x:String" Capacity="22">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -30,10 +30,11 @@
       <x:String>UiPath.Core</x:String>
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Xml.Serialization</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="16">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="18">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -50,6 +51,8 @@
       <AssemblyReference>System.Xaml</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="FunctionScheduleRoom_Data_Retrieve" sap:VirtualizedContainerService.HintSize="242,143" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -63,21 +66,25 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Flowchart sap:VirtualizedContainerService.HintSize="761,789" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+    <Flowchart sap:VirtualizedContainerService.HintSize="895,1087" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+      <Flowchart.Variables>
+        <Variable x:TypeArguments="ui:GenericValue" Name="name" />
+        <Variable x:TypeArguments="ui:GenericValue" Name="indexValue" />
+      </Flowchart.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <av:Point x:Key="ShapeLocation">310,2.5</av:Point>
           <av:Size x:Key="ShapeSize">60,75</av:Size>
           <av:PointCollection x:Key="ConnectorLocation">340,77.5 340,107</av:PointCollection>
-          <x:Double x:Key="Width">727</x:Double>
-          <x:Double x:Key="Height">753</x:Double>
+          <x:Double x:Key="Width">861</x:Double>
+          <x:Double x:Key="Height">1051</x:Double>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <Flowchart.StartNode>
-        <x:Reference>__ReferenceID6</x:Reference>
+        <x:Reference>__ReferenceID19</x:Reference>
       </Flowchart.StartNode>
-      <FlowStep x:Name="__ReferenceID0">
+      <FlowStep x:Name="__ReferenceID8">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:Point x:Key="ShapeLocation">240,227</av:Point>
@@ -107,43 +114,36 @@
           </ui:UiElementExists>
         </Sequence>
         <FlowStep.Next>
-          <FlowDecision x:Name="__ReferenceID1" Condition="[elementReady]" DisplayName="Element Ready" sap:VirtualizedContainerService.HintSize="84,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
+          <FlowDecision x:Name="__ReferenceID9" Condition="[elementReady]" DisplayName="Element Ready" sap:VirtualizedContainerService.HintSize="84,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <av:Point x:Key="ShapeLocation">298,336.5</av:Point>
                 <av:Size x:Key="ShapeSize">84,87</av:Size>
-                <av:PointCollection x:Key="TrueConnector">298,380 210,380 210,457</av:PointCollection>
+                <av:PointCollection x:Key="TrueConnector">298,380 200,380 200,437</av:PointCollection>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <FlowDecision.True>
-              <FlowStep x:Name="__ReferenceID2">
+              <FlowStep x:Name="__ReferenceID15">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <av:Point x:Key="ShapeLocation">110,457</av:Point>
+                    <av:Point x:Key="ShapeLocation">100,437</av:Point>
                     <av:Size x:Key="ShapeSize">200,66</av:Size>
-                    <av:PointCollection x:Key="ConnectorLocation">310,490 490,490 490,506.5</av:PointCollection>
+                    <av:PointCollection x:Key="ConnectorLocation">200,503 200,533 220,533 220,550</av:PointCollection>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Sequence DisplayName="Open Room Schedule " sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                <Sequence DisplayName="Get Schedule Date" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_10">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_DOUBLE" DisplayName="Double Click" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
-                    <ui:Click.CursorPosition>
-                      <ui:CursorPosition Position="Center">
-                        <ui:CursorPosition.OffsetX>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:CursorPosition.OffsetX>
-                        <ui:CursorPosition.OffsetY>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:CursorPosition.OffsetY>
-                      </ui:CursorPosition>
-                    </ui:Click.CursorPosition>
-                    <ui:Click.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="4710435a9392b3e4f4d08820cb6e370f" Selector="&lt;wnd app='salespro.exe' cls='TMainForm' title='Training - hotel SalesPro Enterprise - [Function]' /&gt;&lt;wnd aaname='Workspace' cls='MDIClient' /&gt;&lt;wnd cls='TfrmFunction' title='Function' /&gt;&lt;wnd cls='TTabSheet' title='Function' /&gt;&lt;wnd cls='TTabSheet' title='Account and Room Info' /&gt;&lt;wnd cls='TListView' /&gt;&lt;ctrl role='list item' idx='{{currentScheduleIndex}}' /&gt;">
+                  <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="name" DisplayName="Get Attribute 'list item  9/18/2011'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="GetAttribute_1">
+                    <ui:GetAttribute.Result>
+                      <OutArgument x:TypeArguments="ui:GenericValue">[name]</OutArgument>
+                    </ui:GetAttribute.Result>
+                    <ui:GetAttribute.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="93009b12326fcb404c6a312c7f2d9f4f" Selector="&lt;wnd app='salespro.exe' cls='TMainForm' title='Training - hotel SalesPro Enterprise - [Function]' /&gt;&lt;wnd aaname='Workspace' cls='MDIClient' /&gt;&lt;wnd cls='TfrmFunction' title='Function' /&gt;&lt;wnd cls='TTabSheet' title='Function' /&gt;&lt;wnd cls='TTabSheet' title='Account and Room Info' /&gt;&lt;wnd cls='TListView' /&gt;&lt;ctrl role='list item' idx='{{currentScheduleIndex}}' /&gt;">
                         <ui:Target.TimeoutMS>
                           <InArgument x:TypeArguments="x:Int32" />
                         </ui:Target.TimeoutMS>
@@ -151,350 +151,832 @@
                           <InArgument x:TypeArguments="ui:WaitForReady" />
                         </ui:Target.WaitForReady>
                       </ui:Target>
-                    </ui:Click.Target>
-                  </ui:Click>
-                  <ui:UiElementExists DisplayName="Element Exists 'SalesPro.exe Schedule'" Exists="[elementReady]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
-                    <ui:UiElementExists.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="59ba285be5aa638ce319c6c6fcfa00f1" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;">
-                        <ui:Target.TimeoutMS>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:Target.TimeoutMS>
-                        <ui:Target.WaitForReady>
-                          <InArgument x:TypeArguments="ui:WaitForReady" />
-                        </ui:Target.WaitForReady>
-                      </ui:Target>
-                    </ui:UiElementExists.Target>
-                  </ui:UiElementExists>
+                    </ui:GetAttribute.Target>
+                  </ui:GetAttribute>
                 </Sequence>
                 <FlowStep.Next>
-                  <FlowDecision x:Name="__ReferenceID3" Condition="[elementReady]" DisplayName="Element Ready?" sap:VirtualizedContainerService.HintSize="89,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
+                  <FlowStep x:Name="__ReferenceID17">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        <av:Point x:Key="ShapeLocation">445.5,506.5</av:Point>
-                        <av:Size x:Key="ShapeSize">89,87</av:Size>
-                        <av:PointCollection x:Key="TrueConnector">445.5,550 210,550 210,567</av:PointCollection>
+                        <av:Point x:Key="ShapeLocation">89,550</av:Point>
+                        <av:Size x:Key="ShapeSize">262,60</av:Size>
+                        <av:PointCollection x:Key="ConnectorLocation">351,580 490,580 490,626.5</av:PointCollection>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <FlowDecision.True>
-                      <FlowStep x:Name="__ReferenceID4">
+                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="ui:GenericValue">[indexValue]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="ui:GenericValue">[name.IndexOf(" ")]</InArgument>
+                      </Assign.Value>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </Assign>
+                    <FlowStep.Next>
+                      <FlowDecision x:Name="__ReferenceID16" Condition="[indexValue = -1]" DisplayName="Check Date?" sap:VirtualizedContainerService.HintSize="71,87" sap2010:WorkflowViewState.IdRef="FlowDecision_3">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <av:Point x:Key="ShapeLocation">110,567</av:Point>
-                            <av:Size x:Key="ShapeSize">200,66</av:Size>
-                            <av:PointCollection x:Key="ConnectorLocation">210,633 210,687</av:PointCollection>
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <av:Point x:Key="ShapeLocation">454.5,626.5</av:Point>
+                            <av:Size x:Key="ShapeSize">71,87</av:Size>
+                            <av:PointCollection x:Key="TrueConnector">454.5,670 210,670 210,747</av:PointCollection>
+                            <av:PointCollection x:Key="FalseConnector">525.5,670 599,670</av:PointCollection>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <Sequence DisplayName="Read Room Schedule Data" sap:VirtualizedContainerService.HintSize="376,2634" sap2010:WorkflowViewState.IdRef="Sequence_7">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TwwDBDateTimePicker'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
-                            <ui:GetValue.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="833bd33f632b54560da44eba1c1ef26b" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;&lt;wnd cls='TwwDBDateTimePicker' idx='2' /&gt;">
-                                <ui:Target.TimeoutMS>
-                                  <InArgument x:TypeArguments="x:Int32" />
-                                </ui:Target.TimeoutMS>
-                                <ui:Target.WaitForReady>
-                                  <InArgument x:TypeArguments="ui:WaitForReady" />
-                                </ui:Target.WaitForReady>
-                              </ui:Target>
-                            </ui:GetValue.Target>
-                            <ui:GetValue.Value>
-                              <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(0).Item("Start Date")]</OutArgument>
-                            </ui:GetValue.Value>
-                          </ui:GetValue>
-                          <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_2">
-                            <ui:GetValue.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="d649cb21e4b3bb7b4d72af6fcc13a140" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;&lt;wnd cls='TDBEdit' idx='14' /&gt;">
-                                <ui:Target.TimeoutMS>
-                                  <InArgument x:TypeArguments="x:Int32" />
-                                </ui:Target.TimeoutMS>
-                                <ui:Target.WaitForReady>
-                                  <InArgument x:TypeArguments="ui:WaitForReady" />
-                                </ui:Target.WaitForReady>
-                              </ui:Target>
-                            </ui:GetValue.Target>
-                            <ui:GetValue.Value>
-                              <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(0).Item("Start Time")]</OutArgument>
-                            </ui:GetValue.Value>
-                          </ui:GetValue>
-                          <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TwwDBDateTimePicker'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_3">
-                            <ui:GetValue.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="cca0ef0a55b16d2c47cf331dec7559f6" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;&lt;wnd cls='TwwDBDateTimePicker' idx='1' /&gt;">
-                                <ui:Target.TimeoutMS>
-                                  <InArgument x:TypeArguments="x:Int32" />
-                                </ui:Target.TimeoutMS>
-                                <ui:Target.WaitForReady>
-                                  <InArgument x:TypeArguments="ui:WaitForReady" />
-                                </ui:Target.WaitForReady>
-                              </ui:Target>
-                            </ui:GetValue.Target>
-                            <ui:GetValue.Value>
-                              <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(0).Item("End Date")]</OutArgument>
-                            </ui:GetValue.Value>
-                          </ui:GetValue>
-                          <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_4">
-                            <ui:GetValue.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="34b4490ef7fa343c688588c781cc3eb2" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;&lt;wnd cls='TDBEdit' idx='12' /&gt;">
-                                <ui:Target.TimeoutMS>
-                                  <InArgument x:TypeArguments="x:Int32" />
-                                </ui:Target.TimeoutMS>
-                                <ui:Target.WaitForReady>
-                                  <InArgument x:TypeArguments="ui:WaitForReady" />
-                                </ui:Target.WaitForReady>
-                              </ui:Target>
-                            </ui:GetValue.Target>
-                            <ui:GetValue.Value>
-                              <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(0).Item("End Time")]</OutArgument>
-                            </ui:GetValue.Value>
-                          </ui:GetValue>
-                          <ui:GetVisibleText FormattedText="{x:Null}" WordsInfo="{x:Null}" DisplayName="Get Visible Text 'TDBLookupComboBox'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetVisibleText_1">
-                            <ui:GetVisibleText.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="2db42eedcfd7873643b4169e2427a4d7" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;&lt;wnd cls='TDBLookupComboBox' idx='5' /&gt;">
-                                <ui:Target.TimeoutMS>
-                                  <InArgument x:TypeArguments="x:Int32" />
-                                </ui:Target.TimeoutMS>
-                                <ui:Target.WaitForReady>
-                                  <InArgument x:TypeArguments="ui:WaitForReady" />
-                                </ui:Target.WaitForReady>
-                              </ui:Target>
-                            </ui:GetVisibleText.Target>
-                            <ui:GetVisibleText.Text>
-                              <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(0).Item("Set Up")]</OutArgument>
-                            </ui:GetVisibleText.Text>
-                          </ui:GetVisibleText>
-                          <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_5">
-                            <ui:GetValue.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="8f26dce983c564b562b5010ec6ed6dc9" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;&lt;wnd cls='TDBEdit' idx='13' /&gt;">
-                                <ui:Target.TimeoutMS>
-                                  <InArgument x:TypeArguments="x:Int32" />
-                                </ui:Target.TimeoutMS>
-                                <ui:Target.WaitForReady>
-                                  <InArgument x:TypeArguments="ui:WaitForReady" />
-                                </ui:Target.WaitForReady>
-                              </ui:Target>
-                            </ui:GetValue.Target>
-                            <ui:GetValue.Value>
-                              <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(0).Item("# of people")]</OutArgument>
-                            </ui:GetValue.Value>
-                          </ui:GetValue>
-                          <ui:GetVisibleText FormattedText="{x:Null}" WordsInfo="{x:Null}" DisplayName="Get Visible Text 'TDBLookupComboBox'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetVisibleText_2">
-                            <ui:GetVisibleText.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="2294d872bdb8d20c2ca28c3e6f7a3e6c" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;&lt;wnd cls='TDBLookupComboBox' idx='4' /&gt;">
-                                <ui:Target.TimeoutMS>
-                                  <InArgument x:TypeArguments="x:Int32" />
-                                </ui:Target.TimeoutMS>
-                                <ui:Target.WaitForReady>
-                                  <InArgument x:TypeArguments="ui:WaitForReady" />
-                                </ui:Target.WaitForReady>
-                              </ui:Target>
-                            </ui:GetVisibleText.Target>
-                            <ui:GetVisibleText.Text>
-                              <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(0).Item("Event Type")]</OutArgument>
-                            </ui:GetVisibleText.Text>
-                          </ui:GetVisibleText>
-                          <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TcxDBCurrencyEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_6">
-                            <ui:GetValue.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="f51a9ba427b7795f7399ce025660a1db" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;&lt;wnd cls='TcxDBCurrencyEdit' idx='7' /&gt;">
-                                <ui:Target.TimeoutMS>
-                                  <InArgument x:TypeArguments="x:Int32" />
-                                </ui:Target.TimeoutMS>
-                                <ui:Target.WaitForReady>
-                                  <InArgument x:TypeArguments="ui:WaitForReady" />
-                                </ui:Target.WaitForReady>
-                              </ui:Target>
-                            </ui:GetValue.Target>
-                            <ui:GetValue.Value>
-                              <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(0).Item("Est Food")]</OutArgument>
-                            </ui:GetValue.Value>
-                          </ui:GetValue>
-                          <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TcxDBCurrencyEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_7">
-                            <ui:GetValue.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="a600fa070dfd6be93cdc8ab2c828b365" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;&lt;wnd cls='TcxDBCurrencyEdit' idx='5' /&gt;">
-                                <ui:Target.TimeoutMS>
-                                  <InArgument x:TypeArguments="x:Int32" />
-                                </ui:Target.TimeoutMS>
-                                <ui:Target.WaitForReady>
-                                  <InArgument x:TypeArguments="ui:WaitForReady" />
-                                </ui:Target.WaitForReady>
-                              </ui:Target>
-                            </ui:GetValue.Target>
-                            <ui:GetValue.Value>
-                              <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(0).Item("Est Bev")]</OutArgument>
-                            </ui:GetValue.Value>
-                          </ui:GetValue>
-                          <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_8">
-                            <ui:GetValue.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="d5ab5be2272085aa42b5604fda2de86a" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;&lt;wnd idx='42' /&gt;">
-                                <ui:Target.TimeoutMS>
-                                  <InArgument x:TypeArguments="x:Int32" />
-                                </ui:Target.TimeoutMS>
-                                <ui:Target.WaitForReady>
-                                  <InArgument x:TypeArguments="ui:WaitForReady" />
-                                </ui:Target.WaitForReady>
-                              </ui:Target>
-                            </ui:GetValue.Target>
-                            <ui:GetValue.Value>
-                              <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(0).Item("Room")]</OutArgument>
-                            </ui:GetValue.Value>
-                          </ui:GetValue>
-                          <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TcxDBCurrencyEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_9">
-                            <ui:GetValue.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="ad2da686d8670c2c7fc4c2d05ba6a586" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;&#xD;&#xA;&lt;wnd cls='TcxDBCurrencyEdit' idx='6' /&gt;&#xD;&#xA;">
-                                <ui:Target.TimeoutMS>
-                                  <InArgument x:TypeArguments="x:Int32" />
-                                </ui:Target.TimeoutMS>
-                                <ui:Target.WaitForReady>
-                                  <InArgument x:TypeArguments="ui:WaitForReady" />
-                                </ui:Target.WaitForReady>
-                              </ui:Target>
-                            </ui:GetValue.Target>
-                            <ui:GetValue.Value>
-                              <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(0).Item("Room Rental")]</OutArgument>
-                            </ui:GetValue.Value>
-                          </ui:GetValue>
-                          <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_10">
-                            <ui:GetValue.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="8527c761730e027a35e2bae4fb00bbb0" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;&lt;wnd cls='TDBEdit' idx='11' /&gt;">
-                                <ui:Target.TimeoutMS>
-                                  <InArgument x:TypeArguments="x:Int32" />
-                                </ui:Target.TimeoutMS>
-                                <ui:Target.WaitForReady>
-                                  <InArgument x:TypeArguments="ui:WaitForReady" />
-                                </ui:Target.WaitForReady>
-                              </ui:Target>
-                            </ui:GetValue.Target>
-                            <ui:GetValue.Value>
-                              <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(0).Item("Requied Sq. Feet")]</OutArgument>
-                            </ui:GetValue.Value>
-                          </ui:GetValue>
-                          <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_11">
-                            <ui:GetValue.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="2246120111fc38df15b7977ef2b643ba" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;&lt;wnd cls='TDBEdit' idx='10' /&gt;">
-                                <ui:Target.TimeoutMS>
-                                  <InArgument x:TypeArguments="x:Int32" />
-                                </ui:Target.TimeoutMS>
-                                <ui:Target.WaitForReady>
-                                  <InArgument x:TypeArguments="ui:WaitForReady" />
-                                </ui:Target.WaitForReady>
-                              </ui:Target>
-                            </ui:GetValue.Target>
-                            <ui:GetValue.Value>
-                              <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(0).Item("Sq. Feet")]</OutArgument>
-                            </ui:GetValue.Value>
-                          </ui:GetValue>
-                          <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_12">
-                            <ui:GetValue.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="e23f5723679191f6cbe7c1d3a67f0dfe" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;&lt;wnd cls='TDBEdit' idx='9' /&gt;">
-                                <ui:Target.TimeoutMS>
-                                  <InArgument x:TypeArguments="x:Int32" />
-                                </ui:Target.TimeoutMS>
-                                <ui:Target.WaitForReady>
-                                  <InArgument x:TypeArguments="ui:WaitForReady" />
-                                </ui:Target.WaitForReady>
-                              </ui:Target>
-                            </ui:GetValue.Target>
-                            <ui:GetValue.Value>
-                              <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(0).Item("Status")]</OutArgument>
-                            </ui:GetValue.Value>
-                          </ui:GetValue>
-                          <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_13">
-                            <ui:GetValue.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="94e52b64e912e1f522e4887979e7774e" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;&lt;wnd cls='TDBEdit' idx='8' /&gt;">
-                                <ui:Target.TimeoutMS>
-                                  <InArgument x:TypeArguments="x:Int32" />
-                                </ui:Target.TimeoutMS>
-                                <ui:Target.WaitForReady>
-                                  <InArgument x:TypeArguments="ui:WaitForReady" />
-                                </ui:Target.WaitForReady>
-                              </ui:Target>
-                            </ui:GetValue.Target>
-                            <ui:GetValue.Value>
-                              <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(0).Item("Post As")]</OutArgument>
-                            </ui:GetValue.Value>
-                          </ui:GetValue>
-                          <ui:GetVisibleText FormattedText="{x:Null}" WordsInfo="{x:Null}" DisplayName="Get Visible Text 'TDBLookupComboBox'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetVisibleText_3">
-                            <ui:GetVisibleText.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="e1c2b579e171e459ad4085cb7bd44bee" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;&lt;wnd cls='TDBLookupComboBox' idx='3' /&gt;">
-                                <ui:Target.TimeoutMS>
-                                  <InArgument x:TypeArguments="x:Int32" />
-                                </ui:Target.TimeoutMS>
-                                <ui:Target.WaitForReady>
-                                  <InArgument x:TypeArguments="ui:WaitForReady" />
-                                </ui:Target.WaitForReady>
-                              </ui:Target>
-                            </ui:GetVisibleText.Target>
-                            <ui:GetVisibleText.Text>
-                              <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(0).Item("Created By")]</OutArgument>
-                            </ui:GetVisibleText.Text>
-                          </ui:GetVisibleText>
-                          <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  Close'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
-                            <ui:Click.CursorPosition>
-                              <ui:CursorPosition Position="Center">
-                                <ui:CursorPosition.OffsetX>
-                                  <InArgument x:TypeArguments="x:Int32" />
-                                </ui:CursorPosition.OffsetX>
-                                <ui:CursorPosition.OffsetY>
-                                  <InArgument x:TypeArguments="x:Int32" />
-                                </ui:CursorPosition.OffsetY>
-                              </ui:CursorPosition>
-                            </ui:Click.CursorPosition>
-                            <ui:Click.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="77a02dc633e5e5e06907ec52cd6f3775" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;&lt;ctrl idx='1' name='Close' role='push button' /&gt;">
-                                <ui:Target.TimeoutMS>
-                                  <InArgument x:TypeArguments="x:Int32" />
-                                </ui:Target.TimeoutMS>
-                                <ui:Target.WaitForReady>
-                                  <InArgument x:TypeArguments="ui:WaitForReady" />
-                                </ui:Target.WaitForReady>
-                              </ui:Target>
-                            </ui:Click.Target>
-                          </ui:Click>
-                          <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_1">
-                            <Assign.To>
-                              <OutArgument x:TypeArguments="x:Int32">[currentScheduleIndex]</OutArgument>
-                            </Assign.To>
-                            <Assign.Value>
-                              <InArgument x:TypeArguments="x:Int32">[currentScheduleIndex+1]</InArgument>
-                            </Assign.Value>
-                          </Assign>
-                        </Sequence>
-                        <FlowStep.Next>
-                          <FlowStep x:Name="__ReferenceID5">
+                        <FlowDecision.True>
+                          <FlowStep x:Name="__ReferenceID10">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <av:Point x:Key="ShapeLocation">110,687</av:Point>
+                                <av:Point x:Key="ShapeLocation">110,747</av:Point>
                                 <av:Size x:Key="ShapeSize">200,66</av:Size>
-                                <av:PointCollection x:Key="ConnectorLocation">110,720 80,720 80,260 240,260</av:PointCollection>
+                                <av:PointCollection x:Key="ConnectorLocation">310,780 450,780 450,786.5</av:PointCollection>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Sequence DisplayName="Append Data To Excel" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                            <Sequence DisplayName="Open Room Schedule " sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_6">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:AppendRange DataTable="[dtFunctionRoomSchedule]" DisplayName="Append Range" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="Function Schedule Room" WorkbookPath="[salesFroPath]" />
+                              <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_DOUBLE" DisplayName="Double Click" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                <ui:Click.CursorPosition>
+                                  <ui:CursorPosition Position="Center">
+                                    <ui:CursorPosition.OffsetX>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:CursorPosition.OffsetX>
+                                    <ui:CursorPosition.OffsetY>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:CursorPosition.OffsetY>
+                                  </ui:CursorPosition>
+                                </ui:Click.CursorPosition>
+                                <ui:Click.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="4710435a9392b3e4f4d08820cb6e370f" Selector="&lt;wnd app='salespro.exe' cls='TMainForm' title='Training - hotel SalesPro Enterprise - [Function]' /&gt;&lt;wnd aaname='Workspace' cls='MDIClient' /&gt;&lt;wnd cls='TfrmFunction' title='Function' /&gt;&lt;wnd cls='TTabSheet' title='Function' /&gt;&lt;wnd cls='TTabSheet' title='Account and Room Info' /&gt;&lt;wnd cls='TListView' /&gt;&lt;ctrl role='list item' idx='{{currentScheduleIndex}}' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:Click.Target>
+                              </ui:Click>
+                              <ui:UiElementExists DisplayName="Element Exists 'SalesPro.exe Schedule'" Exists="[elementReady]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
+                                <ui:UiElementExists.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="59ba285be5aa638ce319c6c6fcfa00f1" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:UiElementExists.Target>
+                              </ui:UiElementExists>
                             </Sequence>
                             <FlowStep.Next>
-                              <x:Reference>__ReferenceID0</x:Reference>
+                              <FlowDecision x:Name="__ReferenceID11" Condition="[elementReady]" DisplayName="Element Ready?" sap:VirtualizedContainerService.HintSize="89,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <av:Point x:Key="ShapeLocation">405.5,786.5</av:Point>
+                                    <av:Size x:Key="ShapeSize">89,87</av:Size>
+                                    <av:PointCollection x:Key="TrueConnector">405.5,830 210,830 210,857</av:PointCollection>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <FlowDecision.True>
+                                  <FlowStep x:Name="__ReferenceID12">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <av:Point x:Key="ShapeLocation">110,857</av:Point>
+                                        <av:Size x:Key="ShapeSize">200,66</av:Size>
+                                        <av:PointCollection x:Key="ConnectorLocation">310,890 490,890 490,927</av:PointCollection>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <Sequence DisplayName="Read Room Schedule Data" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_14">
+                                        <ui:GetValue.Target>
+                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="6d9e41b5a95f90767a275926882d711d" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;&lt;wnd cls='TDBEdit' idx='1' /&gt;">
+                                            <ui:Target.TimeoutMS>
+                                              <InArgument x:TypeArguments="x:Int32" />
+                                            </ui:Target.TimeoutMS>
+                                            <ui:Target.WaitForReady>
+                                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                                            </ui:Target.WaitForReady>
+                                          </ui:Target>
+                                        </ui:GetValue.Target>
+                                        <ui:GetValue.Value>
+                                          <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(0).Item("Account")]</OutArgument>
+                                        </ui:GetValue.Value>
+                                      </ui:GetValue>
+                                      <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_15">
+                                        <ui:GetValue.Target>
+                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="8c5dc2c44bc93e57b67698034e9d505f" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;&lt;wnd cls='TDBEdit' idx='5' /&gt;">
+                                            <ui:Target.TimeoutMS>
+                                              <InArgument x:TypeArguments="x:Int32" />
+                                            </ui:Target.TimeoutMS>
+                                            <ui:Target.WaitForReady>
+                                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                                            </ui:Target.WaitForReady>
+                                          </ui:Target>
+                                        </ui:GetValue.Target>
+                                        <ui:GetValue.Value>
+                                          <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(0).Item("Function")]</OutArgument>
+                                        </ui:GetValue.Value>
+                                      </ui:GetValue>
+                                      <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TwwDBDateTimePicker'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
+                                        <ui:GetValue.Target>
+                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="833bd33f632b54560da44eba1c1ef26b" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;&lt;wnd cls='TwwDBDateTimePicker' idx='2' /&gt;">
+                                            <ui:Target.TimeoutMS>
+                                              <InArgument x:TypeArguments="x:Int32" />
+                                            </ui:Target.TimeoutMS>
+                                            <ui:Target.WaitForReady>
+                                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                                            </ui:Target.WaitForReady>
+                                          </ui:Target>
+                                        </ui:GetValue.Target>
+                                        <ui:GetValue.Value>
+                                          <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(0).Item("Start Date")]</OutArgument>
+                                        </ui:GetValue.Value>
+                                      </ui:GetValue>
+                                      <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_2">
+                                        <ui:GetValue.Target>
+                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="d649cb21e4b3bb7b4d72af6fcc13a140" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;&lt;wnd cls='TDBEdit' idx='14' /&gt;">
+                                            <ui:Target.TimeoutMS>
+                                              <InArgument x:TypeArguments="x:Int32" />
+                                            </ui:Target.TimeoutMS>
+                                            <ui:Target.WaitForReady>
+                                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                                            </ui:Target.WaitForReady>
+                                          </ui:Target>
+                                        </ui:GetValue.Target>
+                                        <ui:GetValue.Value>
+                                          <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(0).Item("Start Time")]</OutArgument>
+                                        </ui:GetValue.Value>
+                                      </ui:GetValue>
+                                      <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TwwDBDateTimePicker'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_3">
+                                        <ui:GetValue.Target>
+                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="cca0ef0a55b16d2c47cf331dec7559f6" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;&lt;wnd cls='TwwDBDateTimePicker' idx='1' /&gt;">
+                                            <ui:Target.TimeoutMS>
+                                              <InArgument x:TypeArguments="x:Int32" />
+                                            </ui:Target.TimeoutMS>
+                                            <ui:Target.WaitForReady>
+                                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                                            </ui:Target.WaitForReady>
+                                          </ui:Target>
+                                        </ui:GetValue.Target>
+                                        <ui:GetValue.Value>
+                                          <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(0).Item("End Date")]</OutArgument>
+                                        </ui:GetValue.Value>
+                                      </ui:GetValue>
+                                      <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_4">
+                                        <ui:GetValue.Target>
+                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="34b4490ef7fa343c688588c781cc3eb2" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;&lt;wnd cls='TDBEdit' idx='12' /&gt;">
+                                            <ui:Target.TimeoutMS>
+                                              <InArgument x:TypeArguments="x:Int32" />
+                                            </ui:Target.TimeoutMS>
+                                            <ui:Target.WaitForReady>
+                                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                                            </ui:Target.WaitForReady>
+                                          </ui:Target>
+                                        </ui:GetValue.Target>
+                                        <ui:GetValue.Value>
+                                          <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(0).Item("End Time")]</OutArgument>
+                                        </ui:GetValue.Value>
+                                      </ui:GetValue>
+                                      <ui:GetVisibleText FormattedText="{x:Null}" WordsInfo="{x:Null}" DisplayName="Get Visible Text 'TDBLookupComboBox'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetVisibleText_1">
+                                        <ui:GetVisibleText.Target>
+                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="2db42eedcfd7873643b4169e2427a4d7" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;&lt;wnd cls='TDBLookupComboBox' idx='5' /&gt;">
+                                            <ui:Target.TimeoutMS>
+                                              <InArgument x:TypeArguments="x:Int32" />
+                                            </ui:Target.TimeoutMS>
+                                            <ui:Target.WaitForReady>
+                                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                                            </ui:Target.WaitForReady>
+                                          </ui:Target>
+                                        </ui:GetVisibleText.Target>
+                                        <ui:GetVisibleText.Text>
+                                          <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(0).Item("Set Up")]</OutArgument>
+                                        </ui:GetVisibleText.Text>
+                                      </ui:GetVisibleText>
+                                      <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_5">
+                                        <ui:GetValue.Target>
+                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="8f26dce983c564b562b5010ec6ed6dc9" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;&lt;wnd cls='TDBEdit' idx='13' /&gt;">
+                                            <ui:Target.TimeoutMS>
+                                              <InArgument x:TypeArguments="x:Int32" />
+                                            </ui:Target.TimeoutMS>
+                                            <ui:Target.WaitForReady>
+                                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                                            </ui:Target.WaitForReady>
+                                          </ui:Target>
+                                        </ui:GetValue.Target>
+                                        <ui:GetValue.Value>
+                                          <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(0).Item("# of people")]</OutArgument>
+                                        </ui:GetValue.Value>
+                                      </ui:GetValue>
+                                      <ui:GetVisibleText FormattedText="{x:Null}" WordsInfo="{x:Null}" DisplayName="Get Visible Text 'TDBLookupComboBox'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetVisibleText_2">
+                                        <ui:GetVisibleText.Target>
+                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="2294d872bdb8d20c2ca28c3e6f7a3e6c" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;&lt;wnd cls='TDBLookupComboBox' idx='4' /&gt;">
+                                            <ui:Target.TimeoutMS>
+                                              <InArgument x:TypeArguments="x:Int32" />
+                                            </ui:Target.TimeoutMS>
+                                            <ui:Target.WaitForReady>
+                                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                                            </ui:Target.WaitForReady>
+                                          </ui:Target>
+                                        </ui:GetVisibleText.Target>
+                                        <ui:GetVisibleText.Text>
+                                          <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(0).Item("Event Type")]</OutArgument>
+                                        </ui:GetVisibleText.Text>
+                                      </ui:GetVisibleText>
+                                      <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TcxDBCurrencyEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_6">
+                                        <ui:GetValue.Target>
+                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="f51a9ba427b7795f7399ce025660a1db" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;&lt;wnd cls='TcxDBCurrencyEdit' idx='7' /&gt;">
+                                            <ui:Target.TimeoutMS>
+                                              <InArgument x:TypeArguments="x:Int32" />
+                                            </ui:Target.TimeoutMS>
+                                            <ui:Target.WaitForReady>
+                                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                                            </ui:Target.WaitForReady>
+                                          </ui:Target>
+                                        </ui:GetValue.Target>
+                                        <ui:GetValue.Value>
+                                          <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(0).Item("Est Food")]</OutArgument>
+                                        </ui:GetValue.Value>
+                                      </ui:GetValue>
+                                      <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TcxDBCurrencyEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_7">
+                                        <ui:GetValue.Target>
+                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="a600fa070dfd6be93cdc8ab2c828b365" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;&lt;wnd cls='TcxDBCurrencyEdit' idx='5' /&gt;">
+                                            <ui:Target.TimeoutMS>
+                                              <InArgument x:TypeArguments="x:Int32" />
+                                            </ui:Target.TimeoutMS>
+                                            <ui:Target.WaitForReady>
+                                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                                            </ui:Target.WaitForReady>
+                                          </ui:Target>
+                                        </ui:GetValue.Target>
+                                        <ui:GetValue.Value>
+                                          <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(0).Item("Est Bev")]</OutArgument>
+                                        </ui:GetValue.Value>
+                                      </ui:GetValue>
+                                      <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_8">
+                                        <ui:GetValue.Target>
+                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="d5ab5be2272085aa42b5604fda2de86a" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;&lt;wnd idx='42' /&gt;">
+                                            <ui:Target.TimeoutMS>
+                                              <InArgument x:TypeArguments="x:Int32" />
+                                            </ui:Target.TimeoutMS>
+                                            <ui:Target.WaitForReady>
+                                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                                            </ui:Target.WaitForReady>
+                                          </ui:Target>
+                                        </ui:GetValue.Target>
+                                        <ui:GetValue.Value>
+                                          <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(0).Item("Room")]</OutArgument>
+                                        </ui:GetValue.Value>
+                                      </ui:GetValue>
+                                      <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TcxDBCurrencyEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_9">
+                                        <ui:GetValue.Target>
+                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="ad2da686d8670c2c7fc4c2d05ba6a586" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;&#xA;&lt;wnd cls='TcxDBCurrencyEdit' idx='6' /&gt;&#xA;">
+                                            <ui:Target.TimeoutMS>
+                                              <InArgument x:TypeArguments="x:Int32" />
+                                            </ui:Target.TimeoutMS>
+                                            <ui:Target.WaitForReady>
+                                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                                            </ui:Target.WaitForReady>
+                                          </ui:Target>
+                                        </ui:GetValue.Target>
+                                        <ui:GetValue.Value>
+                                          <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(0).Item("Room Rental")]</OutArgument>
+                                        </ui:GetValue.Value>
+                                      </ui:GetValue>
+                                      <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_10">
+                                        <ui:GetValue.Target>
+                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="8527c761730e027a35e2bae4fb00bbb0" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;&lt;wnd cls='TDBEdit' idx='11' /&gt;">
+                                            <ui:Target.TimeoutMS>
+                                              <InArgument x:TypeArguments="x:Int32" />
+                                            </ui:Target.TimeoutMS>
+                                            <ui:Target.WaitForReady>
+                                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                                            </ui:Target.WaitForReady>
+                                          </ui:Target>
+                                        </ui:GetValue.Target>
+                                        <ui:GetValue.Value>
+                                          <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(0).Item("Requied Sq. Feet")]</OutArgument>
+                                        </ui:GetValue.Value>
+                                      </ui:GetValue>
+                                      <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_11">
+                                        <ui:GetValue.Target>
+                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="2246120111fc38df15b7977ef2b643ba" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;&lt;wnd cls='TDBEdit' idx='10' /&gt;">
+                                            <ui:Target.TimeoutMS>
+                                              <InArgument x:TypeArguments="x:Int32" />
+                                            </ui:Target.TimeoutMS>
+                                            <ui:Target.WaitForReady>
+                                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                                            </ui:Target.WaitForReady>
+                                          </ui:Target>
+                                        </ui:GetValue.Target>
+                                        <ui:GetValue.Value>
+                                          <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(0).Item("Sq. Feet")]</OutArgument>
+                                        </ui:GetValue.Value>
+                                      </ui:GetValue>
+                                      <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_12">
+                                        <ui:GetValue.Target>
+                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="e23f5723679191f6cbe7c1d3a67f0dfe" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;&lt;wnd cls='TDBEdit' idx='9' /&gt;">
+                                            <ui:Target.TimeoutMS>
+                                              <InArgument x:TypeArguments="x:Int32" />
+                                            </ui:Target.TimeoutMS>
+                                            <ui:Target.WaitForReady>
+                                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                                            </ui:Target.WaitForReady>
+                                          </ui:Target>
+                                        </ui:GetValue.Target>
+                                        <ui:GetValue.Value>
+                                          <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(0).Item("Status")]</OutArgument>
+                                        </ui:GetValue.Value>
+                                      </ui:GetValue>
+                                      <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_13">
+                                        <ui:GetValue.Target>
+                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="94e52b64e912e1f522e4887979e7774e" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;&lt;wnd cls='TDBEdit' idx='8' /&gt;">
+                                            <ui:Target.TimeoutMS>
+                                              <InArgument x:TypeArguments="x:Int32" />
+                                            </ui:Target.TimeoutMS>
+                                            <ui:Target.WaitForReady>
+                                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                                            </ui:Target.WaitForReady>
+                                          </ui:Target>
+                                        </ui:GetValue.Target>
+                                        <ui:GetValue.Value>
+                                          <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(0).Item("Post As")]</OutArgument>
+                                        </ui:GetValue.Value>
+                                      </ui:GetValue>
+                                      <ui:GetVisibleText FormattedText="{x:Null}" WordsInfo="{x:Null}" DisplayName="Get Visible Text 'TDBLookupComboBox'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetVisibleText_3">
+                                        <ui:GetVisibleText.Target>
+                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="e1c2b579e171e459ad4085cb7bd44bee" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;&lt;wnd cls='TDBLookupComboBox' idx='3' /&gt;">
+                                            <ui:Target.TimeoutMS>
+                                              <InArgument x:TypeArguments="x:Int32" />
+                                            </ui:Target.TimeoutMS>
+                                            <ui:Target.WaitForReady>
+                                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                                            </ui:Target.WaitForReady>
+                                          </ui:Target>
+                                        </ui:GetVisibleText.Target>
+                                        <ui:GetVisibleText.Text>
+                                          <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(0).Item("Created By")]</OutArgument>
+                                        </ui:GetVisibleText.Text>
+                                      </ui:GetVisibleText>
+                                    </Sequence>
+                                    <FlowStep.Next>
+                                      <FlowStep x:Name="__ReferenceID14">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <av:Point x:Key="ShapeLocation">390,927</av:Point>
+                                            <av:Size x:Key="ShapeSize">200,66</av:Size>
+                                            <av:PointCollection x:Key="ConnectorLocation">490,993 490,1010 310,1010</av:PointCollection>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <Sequence DisplayName="Read Agenda Details" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                                          <Sequence.Variables>
+                                            <Variable x:TypeArguments="x:Int32" Default="1" Name="currentRoomAgendaIndex" />
+                                            <Variable x:TypeArguments="x:Int32" Default="0" Name="roomAgendaTableIndex" />
+                                          </Sequence.Variables>
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <Flowchart sap:VirtualizedContainerService.HintSize="682,790" sap2010:WorkflowViewState.IdRef="Flowchart_2">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
+                                                <av:Size x:Key="ShapeSize">60,75</av:Size>
+                                                <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,117</av:PointCollection>
+                                                <x:Double x:Key="Width">648</x:Double>
+                                                <x:Double x:Key="Height">754</x:Double>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <Flowchart.StartNode>
+                                              <x:Reference>__ReferenceID0</x:Reference>
+                                            </Flowchart.StartNode>
+                                            <FlowStep x:Name="__ReferenceID0">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <av:Point x:Key="ShapeLocation">200,117</av:Point>
+                                                  <av:Size x:Key="ShapeSize">200,66</av:Size>
+                                                  <av:PointCollection x:Key="ConnectorLocation">300,183 300,213 400,213 400,246.5</av:PointCollection>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <Sequence DisplayName="Check Room Agenda List" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <ui:UiElementExists DisplayName="Element Exists 'list item  9/18/2011'" Exists="[elementReady]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_4">
+                                                  <ui:UiElementExists.Target>
+                                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="ec6ef477f0675f6e1752eb351f800f75" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;&lt;wnd cls='TTabSheet' title='Agenda Detail' /&gt;&lt;wnd cls='TListView' /&gt;&lt;ctrl role='list item' idx='{{currentRoomAgendaIndex}}' /&gt;">
+                                                      <ui:Target.TimeoutMS>
+                                                        <InArgument x:TypeArguments="x:Int32" />
+                                                      </ui:Target.TimeoutMS>
+                                                      <ui:Target.WaitForReady>
+                                                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                      </ui:Target.WaitForReady>
+                                                    </ui:Target>
+                                                  </ui:UiElementExists.Target>
+                                                </ui:UiElementExists>
+                                              </Sequence>
+                                              <FlowStep.Next>
+                                                <FlowDecision x:Name="__ReferenceID1" Condition="[elementReady]" DisplayName="Element Ready?" sap:VirtualizedContainerService.HintSize="89,87" sap2010:WorkflowViewState.IdRef="FlowDecision_4">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      <av:Point x:Key="ShapeLocation">355.5,246.5</av:Point>
+                                                      <av:Size x:Key="ShapeSize">89,87</av:Size>
+                                                      <av:PointCollection x:Key="TrueConnector">355.5,290 260,290</av:PointCollection>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <FlowDecision.True>
+                                                    <FlowStep x:Name="__ReferenceID2">
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <av:Point x:Key="ShapeLocation">60,257</av:Point>
+                                                          <av:Size x:Key="ShapeSize">200,66</av:Size>
+                                                          <av:PointCollection x:Key="ConnectorLocation">160,323 160,353 400,353 400,376.5</av:PointCollection>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <Sequence DisplayName="Open Room Agenda" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                        <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_DOUBLE" DisplayName="Double Click" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                                          <ui:Click.CursorPosition>
+                                                            <ui:CursorPosition Position="Center">
+                                                              <ui:CursorPosition.OffsetX>
+                                                                <InArgument x:TypeArguments="x:Int32" />
+                                                              </ui:CursorPosition.OffsetX>
+                                                              <ui:CursorPosition.OffsetY>
+                                                                <InArgument x:TypeArguments="x:Int32" />
+                                                              </ui:CursorPosition.OffsetY>
+                                                            </ui:CursorPosition>
+                                                          </ui:Click.CursorPosition>
+                                                          <ui:Click.Target>
+                                                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="ec6ef477f0675f6e1752eb351f800f75" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;&lt;wnd cls='TTabSheet' title='Agenda Detail' /&gt;&lt;wnd cls='TListView' /&gt;&lt;ctrl role='list item' idx='{{currentRoomAgendaIndex}}' /&gt;">
+                                                              <ui:Target.TimeoutMS>
+                                                                <InArgument x:TypeArguments="x:Int32" />
+                                                              </ui:Target.TimeoutMS>
+                                                              <ui:Target.WaitForReady>
+                                                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                              </ui:Target.WaitForReady>
+                                                            </ui:Target>
+                                                          </ui:Click.Target>
+                                                        </ui:Click>
+                                                        <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
+                                                        <ui:UiElementExists DisplayName="Element Exists 'SalesPro.exe Agenda'" Exists="[elementReady]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_5">
+                                                          <ui:UiElementExists.Target>
+                                                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="f31b6c256be26d2cf4d1da43cc2cf33c" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlockAgenda' title='Agenda Detail' /&gt;">
+                                                              <ui:Target.TimeoutMS>
+                                                                <InArgument x:TypeArguments="x:Int32" />
+                                                              </ui:Target.TimeoutMS>
+                                                              <ui:Target.WaitForReady>
+                                                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                              </ui:Target.WaitForReady>
+                                                            </ui:Target>
+                                                          </ui:UiElementExists.Target>
+                                                        </ui:UiElementExists>
+                                                      </Sequence>
+                                                      <FlowStep.Next>
+                                                        <FlowDecision x:Name="__ReferenceID3" Condition="[elementReady]" DisplayName="Element Ready?" sap:VirtualizedContainerService.HintSize="89,87" sap2010:WorkflowViewState.IdRef="FlowDecision_5">
+                                                          <sap:WorkflowViewStateService.ViewState>
+                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                              <av:Point x:Key="ShapeLocation">355.5,376.5</av:Point>
+                                                              <av:Size x:Key="ShapeSize">89,87</av:Size>
+                                                              <av:PointCollection x:Key="TrueConnector">355.5,420 260,420</av:PointCollection>
+                                                            </scg:Dictionary>
+                                                          </sap:WorkflowViewStateService.ViewState>
+                                                          <FlowDecision.True>
+                                                            <FlowStep x:Name="__ReferenceID4">
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <av:Point x:Key="ShapeLocation">60,387</av:Point>
+                                                                  <av:Size x:Key="ShapeSize">200,66</av:Size>
+                                                                  <av:PointCollection x:Key="ConnectorLocation">160,453 160,483 180,483 180,510</av:PointCollection>
+                                                                </scg:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                              <Sequence DisplayName="Read Agenda Details" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                                                                <sap:WorkflowViewStateService.ViewState>
+                                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                  </scg:Dictionary>
+                                                                </sap:WorkflowViewStateService.ViewState>
+                                                                <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TwwDBDateTimePicker'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_16">
+                                                                  <ui:GetValue.Target>
+                                                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="98037ab7df10db35a1fedc31d2cbd490" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlockAgenda' title='Agenda Detail' /&gt;&lt;wnd cls='TwwDBDateTimePicker' /&gt;">
+                                                                      <ui:Target.TimeoutMS>
+                                                                        <InArgument x:TypeArguments="x:Int32" />
+                                                                      </ui:Target.TimeoutMS>
+                                                                      <ui:Target.WaitForReady>
+                                                                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                                      </ui:Target.WaitForReady>
+                                                                    </ui:Target>
+                                                                  </ui:GetValue.Target>
+                                                                  <ui:GetValue.Value>
+                                                                    <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(roomAgendaTableIndex).Item("Agenda Start Date")]</OutArgument>
+                                                                  </ui:GetValue.Value>
+                                                                </ui:GetValue>
+                                                                <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_17">
+                                                                  <ui:GetValue.Target>
+                                                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="c91a637de1be7378d3ace9f37e671b44" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlockAgenda' title='Agenda Detail' /&gt;&lt;wnd cls='TDBEdit' idx='3' /&gt;">
+                                                                      <ui:Target.TimeoutMS>
+                                                                        <InArgument x:TypeArguments="x:Int32" />
+                                                                      </ui:Target.TimeoutMS>
+                                                                      <ui:Target.WaitForReady>
+                                                                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                                      </ui:Target.WaitForReady>
+                                                                    </ui:Target>
+                                                                  </ui:GetValue.Target>
+                                                                  <ui:GetValue.Value>
+                                                                    <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(roomAgendaTableIndex).Item("Agenda Start Time")]</OutArgument>
+                                                                  </ui:GetValue.Value>
+                                                                </ui:GetValue>
+                                                                <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_18">
+                                                                  <ui:GetValue.Target>
+                                                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="b2cd6e01abc9900d4748f7d1f877fa8d" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlockAgenda' title='Agenda Detail' /&gt;&lt;wnd cls='TDBEdit' idx='2' /&gt;">
+                                                                      <ui:Target.TimeoutMS>
+                                                                        <InArgument x:TypeArguments="x:Int32" />
+                                                                      </ui:Target.TimeoutMS>
+                                                                      <ui:Target.WaitForReady>
+                                                                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                                      </ui:Target.WaitForReady>
+                                                                    </ui:Target>
+                                                                  </ui:GetValue.Target>
+                                                                  <ui:GetValue.Value>
+                                                                    <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(roomAgendaTableIndex).Item("Agenda End Time")]</OutArgument>
+                                                                  </ui:GetValue.Value>
+                                                                </ui:GetValue>
+                                                                <ui:GetVisibleText FormattedText="{x:Null}" WordsInfo="{x:Null}" DisplayName="Get Visible Text 'TDBLookupComboBox'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetVisibleText_4">
+                                                                  <ui:GetVisibleText.Target>
+                                                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="6f1ee6e8811800789f05e8264a2fee9c" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlockAgenda' title='Agenda Detail' /&gt;&lt;wnd cls='TDBLookupComboBox' idx='1' /&gt;">
+                                                                      <ui:Target.TimeoutMS>
+                                                                        <InArgument x:TypeArguments="x:Int32" />
+                                                                      </ui:Target.TimeoutMS>
+                                                                      <ui:Target.WaitForReady>
+                                                                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                                      </ui:Target.WaitForReady>
+                                                                    </ui:Target>
+                                                                  </ui:GetVisibleText.Target>
+                                                                  <ui:GetVisibleText.Text>
+                                                                    <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(roomAgendaTableIndex).Item("Room Agenda")]</OutArgument>
+                                                                  </ui:GetVisibleText.Text>
+                                                                </ui:GetVisibleText>
+                                                                <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_19">
+                                                                  <ui:GetValue.Target>
+                                                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="763978874200b253523f2637c76546ff" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlockAgenda' title='Agenda Detail' /&gt;&lt;wnd cls='TDBEdit' idx='1' /&gt;">
+                                                                      <ui:Target.TimeoutMS>
+                                                                        <InArgument x:TypeArguments="x:Int32" />
+                                                                      </ui:Target.TimeoutMS>
+                                                                      <ui:Target.WaitForReady>
+                                                                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                                      </ui:Target.WaitForReady>
+                                                                    </ui:Target>
+                                                                  </ui:GetValue.Target>
+                                                                  <ui:GetValue.Value>
+                                                                    <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(roomAgendaTableIndex).Item("Agenda # of people")]</OutArgument>
+                                                                  </ui:GetValue.Value>
+                                                                </ui:GetValue>
+                                                                <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'editable text'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_20">
+                                                                  <ui:GetValue.Target>
+                                                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="7fe470e7c0e700419b99c4bf2adf495e" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlockAgenda' title='Agenda Detail' /&gt;&lt;wnd cls='TDBMemo' /&gt;">
+                                                                      <ui:Target.TimeoutMS>
+                                                                        <InArgument x:TypeArguments="x:Int32" />
+                                                                      </ui:Target.TimeoutMS>
+                                                                      <ui:Target.WaitForReady>
+                                                                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                                      </ui:Target.WaitForReady>
+                                                                    </ui:Target>
+                                                                  </ui:GetValue.Target>
+                                                                  <ui:GetValue.Value>
+                                                                    <OutArgument x:TypeArguments="x:Object">[dtFunctionRoomSchedule.Rows(roomAgendaTableIndex).Item("Comments")]</OutArgument>
+                                                                  </ui:GetValue.Value>
+                                                                </ui:GetValue>
+                                                                <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'TButton'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                                                  <ui:Click.CursorPosition>
+                                                                    <ui:CursorPosition Position="Center">
+                                                                      <ui:CursorPosition.OffsetX>
+                                                                        <InArgument x:TypeArguments="x:Int32" />
+                                                                      </ui:CursorPosition.OffsetX>
+                                                                      <ui:CursorPosition.OffsetY>
+                                                                        <InArgument x:TypeArguments="x:Int32" />
+                                                                      </ui:CursorPosition.OffsetY>
+                                                                    </ui:CursorPosition>
+                                                                  </ui:Click.CursorPosition>
+                                                                  <ui:Click.Target>
+                                                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="68c561847d06e43609019ee839e1ccc7" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlockAgenda' title='Agenda Detail' /&gt;&lt;wnd aaname='Cancel' cls='TButton' title='&amp;amp;Cancel' /&gt;">
+                                                                      <ui:Target.TimeoutMS>
+                                                                        <InArgument x:TypeArguments="x:Int32" />
+                                                                      </ui:Target.TimeoutMS>
+                                                                      <ui:Target.WaitForReady>
+                                                                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                                      </ui:Target.WaitForReady>
+                                                                    </ui:Target>
+                                                                  </ui:Click.Target>
+                                                                </ui:Click>
+                                                              </Sequence>
+                                                              <FlowStep.Next>
+                                                                <FlowStep x:Name="__ReferenceID5">
+                                                                  <sap:WorkflowViewStateService.ViewState>
+                                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                      <av:Point x:Key="ShapeLocation">49,510</av:Point>
+                                                                      <av:Size x:Key="ShapeSize">262,60</av:Size>
+                                                                      <av:PointCollection x:Key="ConnectorLocation">180,570 180,619</av:PointCollection>
+                                                                    </scg:Dictionary>
+                                                                  </sap:WorkflowViewStateService.ViewState>
+                                                                  <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                                                                    <Assign.To>
+                                                                      <OutArgument x:TypeArguments="x:Int32">[roomAgendaTableIndex]</OutArgument>
+                                                                    </Assign.To>
+                                                                    <Assign.Value>
+                                                                      <InArgument x:TypeArguments="x:Int32">[roomAgendaTableIndex+1]</InArgument>
+                                                                    </Assign.Value>
+                                                                    <sap:WorkflowViewStateService.ViewState>
+                                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                      </scg:Dictionary>
+                                                                    </sap:WorkflowViewStateService.ViewState>
+                                                                  </Assign>
+                                                                  <FlowStep.Next>
+                                                                    <FlowStep x:Name="__ReferenceID6">
+                                                                      <sap:WorkflowViewStateService.ViewState>
+                                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                          <av:Point x:Key="ShapeLocation">80,619</av:Point>
+                                                                          <av:Size x:Key="ShapeSize">200,22</av:Size>
+                                                                          <av:PointCollection x:Key="ConnectorLocation">180,641 180,680</av:PointCollection>
+                                                                        </scg:Dictionary>
+                                                                      </sap:WorkflowViewStateService.ViewState>
+                                                                      <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{}]" DataTable="[dtFunctionRoomSchedule]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddDataRow_2">
+                                                                        <sap:WorkflowViewStateService.ViewState>
+                                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                          </scg:Dictionary>
+                                                                        </sap:WorkflowViewStateService.ViewState>
+                                                                      </ui:AddDataRow>
+                                                                      <FlowStep.Next>
+                                                                        <FlowStep x:Name="__ReferenceID7">
+                                                                          <sap:WorkflowViewStateService.ViewState>
+                                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                              <av:Point x:Key="ShapeLocation">49,680</av:Point>
+                                                                              <av:Size x:Key="ShapeSize">262,60</av:Size>
+                                                                              <av:PointCollection x:Key="ConnectorLocation">49,710 19,710 19,150 200,150</av:PointCollection>
+                                                                            </scg:Dictionary>
+                                                                          </sap:WorkflowViewStateService.ViewState>
+                                                                          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+                                                                            <Assign.To>
+                                                                              <OutArgument x:TypeArguments="x:Int32">[currentRoomAgendaIndex]</OutArgument>
+                                                                            </Assign.To>
+                                                                            <Assign.Value>
+                                                                              <InArgument x:TypeArguments="x:Int32">[currentRoomAgendaIndex+1]</InArgument>
+                                                                            </Assign.Value>
+                                                                            <sap:WorkflowViewStateService.ViewState>
+                                                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                              </scg:Dictionary>
+                                                                            </sap:WorkflowViewStateService.ViewState>
+                                                                          </Assign>
+                                                                          <FlowStep.Next>
+                                                                            <x:Reference>__ReferenceID0</x:Reference>
+                                                                          </FlowStep.Next>
+                                                                        </FlowStep>
+                                                                      </FlowStep.Next>
+                                                                    </FlowStep>
+                                                                  </FlowStep.Next>
+                                                                </FlowStep>
+                                                              </FlowStep.Next>
+                                                            </FlowStep>
+                                                          </FlowDecision.True>
+                                                        </FlowDecision>
+                                                      </FlowStep.Next>
+                                                    </FlowStep>
+                                                  </FlowDecision.True>
+                                                </FlowDecision>
+                                              </FlowStep.Next>
+                                            </FlowStep>
+                                            <x:Reference>__ReferenceID1</x:Reference>
+                                            <x:Reference>__ReferenceID2</x:Reference>
+                                            <x:Reference>__ReferenceID3</x:Reference>
+                                            <x:Reference>__ReferenceID4</x:Reference>
+                                            <x:Reference>__ReferenceID5</x:Reference>
+                                            <x:Reference>__ReferenceID6</x:Reference>
+                                            <x:Reference>__ReferenceID7</x:Reference>
+                                          </Flowchart>
+                                        </Sequence>
+                                        <FlowStep.Next>
+                                          <FlowStep x:Name="__ReferenceID13">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <av:Point x:Key="ShapeLocation">110,977</av:Point>
+                                                <av:Size x:Key="ShapeSize">200,66</av:Size>
+                                                <av:PointCollection x:Key="ConnectorLocation">110,1010 80,1010 80,260 240,260</av:PointCollection>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <Sequence DisplayName="Append Data To Excel" sap:VirtualizedContainerService.HintSize="376,453" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <ui:AppendRange DataTable="[dtFunctionRoomSchedule]" DisplayName="Append Range" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="Function Schedule Room" WorkbookPath="[salesFroPath]" />
+                                              <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  Close'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                                <ui:Click.CursorPosition>
+                                                  <ui:CursorPosition Position="Center">
+                                                    <ui:CursorPosition.OffsetX>
+                                                      <InArgument x:TypeArguments="x:Int32" />
+                                                    </ui:CursorPosition.OffsetX>
+                                                    <ui:CursorPosition.OffsetY>
+                                                      <InArgument x:TypeArguments="x:Int32" />
+                                                    </ui:CursorPosition.OffsetY>
+                                                  </ui:CursorPosition>
+                                                </ui:Click.CursorPosition>
+                                                <ui:Click.Target>
+                                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="77a02dc633e5e5e06907ec52cd6f3775" Selector="&lt;wnd app='salespro.exe' cls='TdlgFunctionRoomBlock' title='Schedule Function Room' /&gt;&lt;ctrl idx='1' name='Close' role='push button' /&gt;">
+                                                    <ui:Target.TimeoutMS>
+                                                      <InArgument x:TypeArguments="x:Int32" />
+                                                    </ui:Target.TimeoutMS>
+                                                    <ui:Target.WaitForReady>
+                                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                    </ui:Target.WaitForReady>
+                                                  </ui:Target>
+                                                </ui:Click.Target>
+                                              </ui:Click>
+                                              <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:Int32">[currentScheduleIndex]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:Int32">[currentScheduleIndex+1]</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                            </Sequence>
+                                            <FlowStep.Next>
+                                              <x:Reference>__ReferenceID8</x:Reference>
+                                            </FlowStep.Next>
+                                          </FlowStep>
+                                        </FlowStep.Next>
+                                      </FlowStep>
+                                    </FlowStep.Next>
+                                  </FlowStep>
+                                </FlowDecision.True>
+                              </FlowDecision>
                             </FlowStep.Next>
                           </FlowStep>
-                        </FlowStep.Next>
-                      </FlowStep>
-                    </FlowDecision.True>
-                  </FlowDecision>
+                        </FlowDecision.True>
+                        <FlowDecision.False>
+                          <FlowStep x:Name="__ReferenceID18">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <av:Point x:Key="ShapeLocation">599,640</av:Point>
+                                <av:Size x:Key="ShapeSize">262,60</av:Size>
+                                <av:PointCollection x:Key="ConnectorLocation">730,640 730,260 440,260</av:PointCollection>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:Int32">[currentScheduleIndex]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:Int32">[currentScheduleIndex+1]</InArgument>
+                              </Assign.Value>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </Assign>
+                            <FlowStep.Next>
+                              <x:Reference>__ReferenceID8</x:Reference>
+                            </FlowStep.Next>
+                          </FlowStep>
+                        </FlowDecision.False>
+                      </FlowDecision>
+                    </FlowStep.Next>
+                  </FlowStep>
                 </FlowStep.Next>
               </FlowStep>
             </FlowDecision.True>
           </FlowDecision>
         </FlowStep.Next>
       </FlowStep>
-      <x:Reference>__ReferenceID1</x:Reference>
-      <FlowStep x:Name="__ReferenceID6">
+      <x:Reference>__ReferenceID9</x:Reference>
+      <FlowStep x:Name="__ReferenceID19">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:Point x:Key="ShapeLocation">240,107</av:Point>
@@ -520,20 +1002,25 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:ExcelReadRange AddHeaders="True" DataTable="[dtFunctionRoomSchedule]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" Range="A1:P1" SheetName="Function Schedule Room" />
+                  <ui:ExcelReadRange AddHeaders="True" DataTable="[dtFunctionRoomSchedule]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" Range="A1:X1" SheetName="Function Schedule Room" />
                 </Sequence>
               </ActivityAction>
             </ui:ExcelApplicationScope.Body>
           </ui:ExcelApplicationScope>
         </Sequence>
         <FlowStep.Next>
-          <x:Reference>__ReferenceID0</x:Reference>
+          <x:Reference>__ReferenceID8</x:Reference>
         </FlowStep.Next>
       </FlowStep>
-      <x:Reference>__ReferenceID2</x:Reference>
-      <x:Reference>__ReferenceID3</x:Reference>
-      <x:Reference>__ReferenceID4</x:Reference>
-      <x:Reference>__ReferenceID5</x:Reference>
+      <x:Reference>__ReferenceID10</x:Reference>
+      <x:Reference>__ReferenceID11</x:Reference>
+      <x:Reference>__ReferenceID12</x:Reference>
+      <x:Reference>__ReferenceID13</x:Reference>
+      <x:Reference>__ReferenceID14</x:Reference>
+      <x:Reference>__ReferenceID15</x:Reference>
+      <x:Reference>__ReferenceID16</x:Reference>
+      <x:Reference>__ReferenceID17</x:Reference>
+      <x:Reference>__ReferenceID18</x:Reference>
     </Flowchart>
   </Sequence>
 </Activity>
