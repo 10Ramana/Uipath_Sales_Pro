@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="TrackingDataRetrieve" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="TrackingDataRetrieve" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="filePath" Type="InArgument(x:String)" />
   </x:Members>
@@ -66,7 +66,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Flowchart sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+    <Flowchart sap:VirtualizedContainerService.HintSize="688,758" sap2010:WorkflowViewState.IdRef="Flowchart_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -88,30 +88,57 @@
             <av:PointCollection x:Key="ConnectorLocation">300,193 300,227</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <Sequence DisplayName="Read Excel Columns" sap:VirtualizedContainerService.HintSize="476,498" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence DisplayName="Read Excel Columns" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="434,260" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" WorkbookPath="[filePath]">
-            <ui:ExcelApplicationScope.Body>
-              <ActivityAction x:TypeArguments="ui:WorkbookApplication">
-                <ActivityAction.Argument>
-                  <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
-                </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,151" sap2010:WorkflowViewState.IdRef="Sequence_2">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <ui:ExcelReadRange AddHeaders="True" DataTable="[traceDT]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" Range="A1:L1" SheetName="Traces" />
-                </Sequence>
-              </ActivityAction>
-            </ui:ExcelApplicationScope.Body>
-          </ui:ExcelApplicationScope>
-          <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'page tab  Tracking'" sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="512,430" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+            <ui:CommentOut.Body>
+              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="476,352" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="434,260" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" WorkbookPath="[filePath]">
+                  <ui:ExcelApplicationScope.Body>
+                    <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,151" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:ExcelReadRange AddHeaders="True" DataTable="[traceDT]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" Range="A1:L1" SheetName="Traces" />
+                      </Sequence>
+                    </ActivityAction>
+                  </ui:ExcelApplicationScope.Body>
+                </ui:ExcelApplicationScope>
+              </Sequence>
+            </ui:CommentOut.Body>
+          </ui:CommentOut>
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke ExcelRead_Columns workflow" sap:VirtualizedContainerService.HintSize="512,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" Timeout="{x:Null}" UnSafe="False" WorkflowFileName="ExcelRead_Columns.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="sheetName">Traces</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="sheetId">1mIg3nZ-paMCo3oiuKMZ5KFLW6B0NIGbmcMwAbL-tT5g</InArgument>
+              <InOutArgument x:TypeArguments="sd:DataTable" x:Key="excelDataTable">
+                <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="traceDT">
+                  <mva:VisualBasicReference.Result>
+                    <OutArgument x:TypeArguments="Location(sd:DataTable)" />
+                  </mva:VisualBasicReference.Result>
+                </mva:VisualBasicReference>
+              </InOutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="range">A1:AF1</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="inputAction">ReadData</InArgument>
+              <InArgument x:TypeArguments="s:Array" x:Key="row" />
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'page tab  Tracking'" sap:VirtualizedContainerService.HintSize="512,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
             <ui:Click.CursorPosition>
               <ui:CursorPosition Position="Center">
                 <ui:CursorPosition.OffsetX>
@@ -264,6 +291,81 @@
                                   <OutArgument x:TypeArguments="x:Object">[traceDT.Rows(0).Item("Account")]</OutArgument>
                                 </ui:GetValue.Value>
                               </ui:GetValue>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_10">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="656514d5f5c6d466728d6b00b825a820" Selector="&lt;wnd app='salespro.exe' cls='TdlgAccountTrace' title='Account Trace' /&gt;&lt;wnd cls='TTabSheet' title='Trace' /&gt;&lt;wnd cls='TDBEdit' idx='4' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[traceDT.Rows(0).Item("Created By")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_11">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="3b7bfb68face5593c6e982802160259b" Selector="&lt;wnd app='salespro.exe' cls='TdlgAccountTrace' title='Account Trace' /&gt;&lt;wnd cls='TTabSheet' title='Trace' /&gt;&lt;wnd cls='TDBEdit' idx='10' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[traceDT.Rows(0).Item("Date Created ")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBCheckBox'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_12">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="cc7ad0d67ce053d1f2ece5316aadd871" Selector="&lt;wnd app='salespro.exe' cls='TdlgAccountTrace' title='Account Trace' /&gt;&lt;wnd cls='TTabSheet' title='Trace' /&gt;&lt;wnd cls='TDBCheckBox' title='Public' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[traceDT.Rows(0).Item("Public")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_13">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="eda142cc939049bc8270a52955df685d" Selector="&lt;wnd app='salespro.exe' cls='TdlgAccountTrace' title='Account Trace' /&gt;&lt;wnd cls='TTabSheet' title='Trace' /&gt;&lt;wnd cls='TDBEdit' idx='2' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[traceDT.Rows(0).Item("Originating Property")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_14">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="90a6e5e610d9ecf6f12c6c52eda6c461" Selector="&lt;wnd app='salespro.exe' cls='TdlgAccountTrace' title='Account Trace' /&gt;&lt;wnd cls='TTabSheet' title='Trace' /&gt;&lt;wnd cls='TDBEdit' idx='1' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[traceDT.Rows(0).Item("Trace Orginating Salesperson")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
                               <ui:GetVisibleText FormattedText="{x:Null}" WordsInfo="{x:Null}" DisplayName="Get Visible Text 'TDBLookupComboBox'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetVisibleText_1">
                                 <ui:GetVisibleText.Target>
                                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="929d944d69bf21ecee7a89e63e2b2c25" Selector="&lt;wnd app='salespro.exe' cls='TdlgAccountTrace' title='Account Trace' /&gt;&lt;wnd cls='TTabSheet' title='Trace' /&gt;&lt;wnd cls='TDBLookupComboBox' idx='4' /&gt;">
@@ -324,6 +426,36 @@
                                   <OutArgument x:TypeArguments="x:Object">[traceDT.Rows(0).Item("Duration")]</OutArgument>
                                 </ui:GetValue.Value>
                               </ui:GetValue>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBCheckBox'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_15">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="0e8b98ba73b28f793ab1e49d02baf31f" Selector="&lt;wnd app='salespro.exe' cls='TdlgAccountTrace' title='Account Trace' /&gt;&lt;wnd cls='TTabSheet' title='Trace' /&gt;&lt;wnd cls='TDBCheckBox' title='Remind' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[traceDT.Rows(0).Item("Remind")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBComboBox'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_16">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="87b1c33a29492bfbb3a9d8d5902d3c5e" Selector="&lt;wnd app='salespro.exe' cls='TdlgAccountTrace' title='Account Trace' /&gt;&lt;wnd cls='TTabSheet' title='Trace' /&gt;&lt;wnd cls='TDBComboBox' idx='1' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[traceDT.Rows(0).Item("Minutes Before")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
                               <ui:GetVisibleText FormattedText="{x:Null}" WordsInfo="{x:Null}" DisplayName="Get Visible Text 'TDBLookupComboBox'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetVisibleText_2">
                                 <ui:GetVisibleText.Target>
                                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="b9ff759c0e155e3ec909d97dd5509b7e" Selector="&lt;wnd app='salespro.exe' cls='TdlgAccountTrace' title='Account Trace' /&gt;&lt;wnd cls='TTabSheet' title='Trace' /&gt;&lt;wnd cls='TDBLookupComboBox' idx='3' /&gt;">
@@ -339,6 +471,21 @@
                                   <OutArgument x:TypeArguments="x:Object">[traceDT.Rows(0).Item("Contact")]</OutArgument>
                                 </ui:GetVisibleText.Text>
                               </ui:GetVisibleText>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_17">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="75c2aaded21a9d62a70739d4001e35f5" Selector="&lt;wnd app='salespro.exe' cls='TdlgAccountTrace' title='Account Trace' /&gt;&lt;wnd cls='TTabSheet' title='Trace' /&gt;&lt;wnd cls='TDBEdit' idx='7' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[traceDT.Rows(0).Item("Assistant")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
                               <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_5">
                                 <ui:GetValue.Target>
                                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="f4a7a5f71383db21133716d70da2a22a" Selector="&lt;wnd app='salespro.exe' cls='TdlgAccountTrace' title='Account Trace' /&gt;&lt;wnd cls='TTabSheet' title='Trace' /&gt;&lt;wnd cls='TDBEdit' idx='6' /&gt;">
@@ -352,6 +499,36 @@
                                 </ui:GetValue.Target>
                                 <ui:GetValue.Value>
                                   <OutArgument x:TypeArguments="x:Object">[traceDT.Rows(0).Item("Phone")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_18">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="0155d049241ce4e4a4fb015b4c9cd3be" Selector="&lt;wnd app='salespro.exe' cls='TdlgAccountTrace' title='Account Trace' /&gt;&lt;wnd cls='TTabSheet' title='Trace' /&gt;&lt;wnd cls='TDBEdit' idx='5' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[traceDT.Rows(0).Item("Ext")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_19">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="ff188b000da83b6616b9ee01e76a418d" Selector="&lt;wnd app='salespro.exe' cls='TdlgAccountTrace' title='Account Trace' /&gt;&lt;wnd cls='TTabSheet' title='Trace' /&gt;&lt;wnd cls='TDBEdit' idx='3' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[traceDT.Rows(0).Item("Email")]</OutArgument>
                                 </ui:GetValue.Value>
                               </ui:GetValue>
                               <ui:GetVisibleText FormattedText="{x:Null}" WordsInfo="{x:Null}" DisplayName="Get Visible Text 'TDBLookupComboBox'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetVisibleText_3">
@@ -414,6 +591,36 @@
                                   <OutArgument x:TypeArguments="x:Object">[traceDT.Rows(0).Item("Completion Date")]</OutArgument>
                                 </ui:GetValue.Value>
                               </ui:GetValue>
+                              <ui:GetVisibleText ContinueOnError="{x:Null}" DisplayName="Get Visible Text 'TDBLookupComboBox'" FormattedText="{x:Null}" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetVisibleText_4" Separators="{x:Null}" WordsInfo="{x:Null}">
+                                <ui:GetVisibleText.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="80fb69f4c8f2e39d8e46afb12eba54e9" Selector="&lt;wnd app='salespro.exe' cls='TdlgAccountTrace' title='Account Trace' /&gt;&lt;wnd cls='TTabSheet' title='Trace' /&gt;&lt;wnd cls='TDBLookupComboBox' idx='1' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetVisibleText.Target>
+                                <ui:GetVisibleText.Text>
+                                  <OutArgument x:TypeArguments="x:Object">[traceDT.Rows(0).Item("Completed By")]</OutArgument>
+                                </ui:GetVisibleText.Text>
+                              </ui:GetVisibleText>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBCheckBox'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_20">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="656ead9ff7651f35dad05d4ffe6c1d78" Selector="&lt;wnd app='salespro.exe' cls='TdlgAccountTrace' title='Account Trace' /&gt;&lt;wnd cls='TTabSheet' title='Trace' /&gt;&lt;wnd cls='TDBCheckBox' title='Waiting for Call Back' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[traceDT.Rows(0).Item("Waiting for Call Back")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
                               <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBMemo'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_9">
                                 <ui:GetValue.Target>
                                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="3cc59312d7edbb39c449d6e8d3a028f3" Selector="&lt;wnd app='salespro.exe' cls='TdlgAccountTrace' title='Account Trace' /&gt;&lt;wnd cls='TTabSheet' title='Trace' /&gt;&lt;wnd cls='TDBMemo' idx='1' /&gt;">
@@ -429,6 +636,148 @@
                                   <OutArgument x:TypeArguments="x:Object">[traceDT.Rows(0).Item("Results")]</OutArgument>
                                 </ui:GetValue.Value>
                               </ui:GetValue>
+                              <ui:Click ClickType="CLICK_SINGLE" ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" DisplayName="Click 'page tab  Next Trace'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}">
+                                <ui:Click.CursorPosition>
+                                  <ui:CursorPosition Position="Center">
+                                    <ui:CursorPosition.OffsetX>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:CursorPosition.OffsetX>
+                                    <ui:CursorPosition.OffsetY>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:CursorPosition.OffsetY>
+                                  </ui:CursorPosition>
+                                </ui:Click.CursorPosition>
+                                <ui:Click.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="96434d3d963dff56de9faf82d22b710a" Selector="&lt;wnd app='salespro.exe' cls='TdlgAccountTrace' title='Account Trace' /&gt;&lt;wnd cls='TPageControl' /&gt;&lt;ctrl name='Next Trace' role='page tab' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:Click.Target>
+                              </ui:Click>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TwwDBDateTimePicker'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_21">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="dd8f88cddaddd1eafe8b8d85a0fada44" Selector="&lt;wnd app='salespro.exe' cls='TdlgAccountTrace' title='Account Trace' /&gt;&lt;wnd cls='TTabSheet' title='Next Trace' /&gt;&lt;wnd cls='TwwDBDateTimePicker' idx='2' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[traceDT.Rows(0).Item("Next Trace Date")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
+                              <ui:GetVisibleText ContinueOnError="{x:Null}" DisplayName="Get Visible Text 'TDBLookupComboBox'" FormattedText="{x:Null}" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetVisibleText_5" Separators="{x:Null}" WordsInfo="{x:Null}">
+                                <ui:GetVisibleText.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="b2bcd74bb252bd1bc549dce421504959" Selector="&lt;wnd app='salespro.exe' cls='TdlgAccountTrace' title='Account Trace' /&gt;&lt;wnd cls='TTabSheet' title='Next Trace' /&gt;&lt;wnd cls='TDBLookupComboBox' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetVisibleText.Target>
+                                <ui:GetVisibleText.Text>
+                                  <OutArgument x:TypeArguments="x:Object">[traceDT.Rows(0).Item("Trace Type2")]</OutArgument>
+                                </ui:GetVisibleText.Text>
+                              </ui:GetVisibleText>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBCheckBox'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_22">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="e2adae573f9a5e9e729a39b9ac1a631f" Selector="&lt;wnd app='salespro.exe' cls='TdlgAccountTrace' title='Account Trace' /&gt;&lt;wnd cls='TTabSheet' title='Next Trace' /&gt;&lt;wnd cls='TDBCheckBox' title='Created' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[traceDT.Rows(0).Item("Created")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TwwDBDateTimePicker'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_23">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="b6fad59bbbeac97e10290fb1d253ac7c" Selector="&lt;wnd app='salespro.exe' cls='TdlgAccountTrace' title='Account Trace' /&gt;&lt;wnd cls='TTabSheet' title='Next Trace' /&gt;&lt;wnd cls='TwwDBDateTimePicker' idx='1' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[traceDT.Rows(0).Item("Date")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_24">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="a80f5ea9e88cea6ada78a0fea08c37f6" Selector="&lt;wnd app='salespro.exe' cls='TdlgAccountTrace' title='Account Trace' /&gt;&lt;wnd cls='TTabSheet' title='Next Trace' /&gt;&lt;wnd cls='TDBEdit' idx='2' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[traceDT.Rows(0).Item("Time2")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_25">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="e2d9020e089e37022c0249bb81dfcd3a" Selector="&lt;wnd app='salespro.exe' cls='TdlgAccountTrace' title='Account Trace' /&gt;&lt;wnd cls='TTabSheet' title='Next Trace' /&gt;&lt;wnd cls='TDBEdit' idx='1' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[traceDT.Rows(0).Item("Duration2")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBCheckBox'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_26">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="41a413a0bd4b95b91c9c83b4d80b24af" Selector="&lt;wnd app='salespro.exe' cls='TdlgAccountTrace' title='Account Trace' /&gt;&lt;wnd cls='TTabSheet' title='Next Trace' /&gt;&lt;wnd cls='TDBCheckBox' title='GM Review' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[traceDT.Rows(0).Item("GM Review")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBMemo'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_27">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="bd92f75a8a232518542c37de8d30b26d" Selector="&lt;wnd app='salespro.exe' cls='TdlgAccountTrace' title='Account Trace' /&gt;&lt;wnd cls='TTabSheet' title='Next Trace' /&gt;&lt;wnd cls='TDBMemo' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[traceDT.Rows(0).Item("Objective2")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
                             </Sequence>
                             <FlowStep.Next>
                               <FlowStep x:Name="__ReferenceID5">
@@ -439,14 +788,47 @@
                                     <av:PointCollection x:Key="ConnectorLocation">70,650 40,650 40,260 200,260</av:PointCollection>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <Sequence DisplayName="Append Data To Excel" sap:VirtualizedContainerService.HintSize="376,453" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                <Sequence DisplayName="Append Data To Excel" sap:VirtualizedContainerService.HintSize="478,750" sap2010:WorkflowViewState.IdRef="Sequence_7">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <ui:AppendRange DataTable="[traceDT]" DisplayName="Append Range" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="Traces" WorkbookPath="[filePath]" />
-                                  <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,285" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+                                    <ui:CommentOut.Body>
+                                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,207" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <ui:AppendRange DataTable="[traceDT]" DisplayName="Append Range" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="Traces" WorkbookPath="[filePath]" />
+                                      </Sequence>
+                                    </ui:CommentOut.Body>
+                                  </ui:CommentOut>
+                                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke ExcelRead_Columns workflow" sap:VirtualizedContainerService.HintSize="436,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" Timeout="{x:Null}" UnSafe="False" WorkflowFileName="ExcelRead_Columns.xaml">
+                                    <ui:InvokeWorkflowFile.Arguments>
+                                      <InArgument x:TypeArguments="x:String" x:Key="sheetName">Traces</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="sheetId">1mIg3nZ-paMCo3oiuKMZ5KFLW6B0NIGbmcMwAbL-tT5g</InArgument>
+                                      <InOutArgument x:TypeArguments="sd:DataTable" x:Key="excelDataTable">
+                                        <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="traceDT">
+                                          <mva:VisualBasicReference.Result>
+                                            <OutArgument x:TypeArguments="Location(sd:DataTable)" />
+                                          </mva:VisualBasicReference.Result>
+                                        </mva:VisualBasicReference>
+                                      </InOutArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="range">A1</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="inputAction">AppendData</InArgument>
+                                      <InArgument x:TypeArguments="s:Array" x:Key="row">
+                                        <mva:VisualBasicValue x:TypeArguments="s:Array" ExpressionText="traceDT.Rows(0).ItemArray">
+                                          <mva:VisualBasicValue.Result>
+                                            <OutArgument x:TypeArguments="s:Array" />
+                                          </mva:VisualBasicValue.Result>
+                                        </mva:VisualBasicValue>
+                                      </InArgument>
+                                    </ui:InvokeWorkflowFile.Arguments>
+                                  </ui:InvokeWorkflowFile>
+                                  <Assign sap:VirtualizedContainerService.HintSize="436,60" sap2010:WorkflowViewState.IdRef="Assign_1">
                                     <Assign.To>
                                       <OutArgument x:TypeArguments="x:Int32">[currentTraceIndex]</OutArgument>
                                     </Assign.To>
@@ -454,7 +836,7 @@
                                       <InArgument x:TypeArguments="x:Int32">[currentTraceIndex+1]</InArgument>
                                     </Assign.Value>
                                   </Assign>
-                                  <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'TButton'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                  <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'TButton'" sap:VirtualizedContainerService.HintSize="436,106" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
                                     <ui:Click.CursorPosition>
                                       <ui:CursorPosition Position="Center">
                                         <ui:CursorPosition.OffsetX>

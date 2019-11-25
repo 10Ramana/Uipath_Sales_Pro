@@ -178,7 +178,7 @@
                   </ui:Click>
                   <ui:UiElementExists DisplayName="Element Exists 'list item  6/15/2012'" Exists="[elementReady]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
                     <ui:UiElementExists.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="80498cf65221a8f5ead3f981034897e0" Selector="&lt;wnd app='salespro.exe' cls='TMainForm' title='Training - hotel SalesPro Enterprise - [Account]' /&gt;&#xD;&#xA;&lt;wnd aaname='Workspace' cls='MDIClient' /&gt;&#xD;&#xA;&lt;wnd cls='TfrmAccount' title='Account' /&gt;&#xD;&#xA;&lt;wnd cls='TTabSheet' title='Group' /&gt;&#xD;&#xA;&lt;wnd cls='TListView' /&gt;&#xD;&#xA;&lt;ctrl role='list item' idx='{{currentIndex}}' /&gt;&#xD;&#xA;">
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="80498cf65221a8f5ead3f981034897e0" Selector="&lt;wnd app='salespro.exe' cls='TMainForm' title='Training - hotel SalesPro Enterprise - [Account]' /&gt;&#xA;&lt;wnd aaname='Workspace' cls='MDIClient' /&gt;&#xA;&lt;wnd cls='TfrmAccount' title='Account' /&gt;&#xA;&lt;wnd cls='TTabSheet' title='Group' /&gt;&#xA;&lt;wnd cls='TListView' /&gt;&#xA;&lt;ctrl role='list item' idx='{{currentIndex}}' /&gt;&#xA;">
                         <ui:Target.TimeoutMS>
                           <InArgument x:TypeArguments="x:Int32" />
                         </ui:Target.TimeoutMS>
@@ -469,6 +469,21 @@
                                     </ui:GetValue.Target>
                                     <ui:GetValue.Value>
                                       <OutArgument x:TypeArguments="x:Object">[groupDT.Rows(0).Item("Phone")]</OutArgument>
+                                    </ui:GetValue.Value>
+                                  </ui:GetValue>
+                                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_51">
+                                    <ui:GetValue.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="73deb42264d68fbbbd89b4c062d93abd" Selector="&lt;wnd app='salespro.exe' cls='TMainForm' title='Training - hotel SalesPro Enterprise - [Group]' /&gt;&lt;wnd aaname='Workspace' cls='MDIClient' /&gt;&lt;wnd cls='TfrmGroup' title='Group' /&gt;&lt;wnd cls='TTabSheet' title='Group Block' /&gt;&lt;wnd cls='TDBEdit' idx='12' /&gt;">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:GetValue.Target>
+                                    <ui:GetValue.Value>
+                                      <OutArgument x:TypeArguments="x:Object">[groupDT.Rows(0).Item("Ext")]</OutArgument>
                                     </ui:GetValue.Value>
                                   </ui:GetValue>
                                   <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_9">
@@ -801,7 +816,7 @@
                                       <OutArgument x:TypeArguments="x:Object">[groupDT.Rows(0).Item("Cancellation")]</OutArgument>
                                     </ui:GetValue.Value>
                                   </ui:GetValue>
-                                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TwwDBDateTimePicker'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_24">
+                                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TwwDBDateTimePicker'" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="GetValue_24">
                                     <ui:GetValue.Target>
                                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="e4463a737e723d48a64f749016709d0f" Selector="&lt;wnd app='salespro.exe' cls='TMainForm' title='Training - hotel SalesPro Enterprise - [Group]' /&gt;&lt;wnd aaname='Workspace' cls='MDIClient' /&gt;&lt;wnd cls='TfrmGroup' title='Group' /&gt;&lt;wnd cls='TTabSheet' title='Group Block' /&gt;&lt;wnd cls='TwwDBDateTimePicker' idx='1' /&gt;">
                                         <ui:Target.TimeoutMS>
@@ -815,7 +830,28 @@
                                     <ui:GetValue.Value>
                                       <OutArgument x:TypeArguments="x:Object">[groupDT.Rows(0).Item("Rooming List Due")]</OutArgument>
                                     </ui:GetValue.Value>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
                                   </ui:GetValue>
+                                  <ui:GetVisibleText ContinueOnError="{x:Null}" DisplayName="Get Visible Text 'TDBLookupComboBox'" FormattedText="{x:Null}" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetVisibleText_21" Separators="{x:Null}" WordsInfo="{x:Null}">
+                                    <ui:GetVisibleText.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="729542a64a1e72f6e05bab89910ab5c4" Selector="&lt;wnd app='salespro.exe' cls='TMainForm' title='Training - hotel SalesPro Enterprise - [Group]' /&gt;&lt;wnd aaname='Workspace' cls='MDIClient' /&gt;&lt;wnd cls='TfrmGroup' title='Group' /&gt;&lt;wnd cls='TTabSheet' title='Group Block' /&gt;&lt;wnd cls='TDBLookupComboBox' idx='3' /&gt;">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:GetVisibleText.Target>
+                                    <ui:GetVisibleText.Text>
+                                      <OutArgument x:TypeArguments="x:Object">[groupDT.Rows(0).Item("Link Function")]</OutArgument>
+                                    </ui:GetVisibleText.Text>
+                                  </ui:GetVisibleText>
                                 </Sequence>
                                 <FlowStep.Next>
                                   <FlowStep x:Name="__ReferenceID12">
@@ -826,7 +862,7 @@
                                         <av:PointCollection x:Key="ConnectorLocation">600,720 630,720 630,800 280,800</av:PointCollection>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GridScraping workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="GridScraping.xaml">
+                                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GridScraping workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="GridScraping.xaml">
                                       <ui:InvokeWorkflowFile.Arguments>
                                         <InArgument x:TypeArguments="x:String" x:Key="filePath">[filePath]</InArgument>
                                       </ui:InvokeWorkflowFile.Arguments>
@@ -905,7 +941,7 @@
                                                     <av:PointCollection x:Key="ConnectorLocation">170,1033 170,1056.5 425.5,1056.5 425.5,1026.5 500,1026.5 500,1056.5</av:PointCollection>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
-                                                <Sequence DisplayName="Get Group Info Data" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                                <Sequence DisplayName="Get Group Info Data" sap:VirtualizedContainerService.HintSize="376,7060" sap2010:WorkflowViewState.IdRef="Sequence_7">
                                                   <sap:WorkflowViewStateService.ViewState>
                                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1046,6 +1082,21 @@
                                                       <OutArgument x:TypeArguments="x:Object">[groupDT.Rows(0).Item("Stay Type")]</OutArgument>
                                                     </ui:GetVisibleText.Text>
                                                   </ui:GetVisibleText>
+                                                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBCheckBox'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_74">
+                                                    <ui:GetValue.Target>
+                                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="b947e30d13f8bb01bb7ef87f4d5c161b" Selector="&lt;wnd app='salespro.exe' cls='TMainForm' title='Training - hotel SalesPro Enterprise - [Group]' /&gt;&lt;wnd aaname='Workspace' cls='MDIClient' /&gt;&lt;wnd cls='TfrmGroup' title='Group' /&gt;&lt;wnd cls='TTabSheet' title='Info' /&gt;&lt;wnd cls='TTabSheet' title='Reservation Info' /&gt;&lt;wnd cls='TDBCheckBox' title='First Time Group' /&gt;">
+                                                        <ui:Target.TimeoutMS>
+                                                          <InArgument x:TypeArguments="x:Int32" />
+                                                        </ui:Target.TimeoutMS>
+                                                        <ui:Target.WaitForReady>
+                                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                        </ui:Target.WaitForReady>
+                                                      </ui:Target>
+                                                    </ui:GetValue.Target>
+                                                    <ui:GetValue.Value>
+                                                      <OutArgument x:TypeArguments="x:Object">[groupDT.Rows(0).Item("First Time Group")]</OutArgument>
+                                                    </ui:GetValue.Value>
+                                                  </ui:GetValue>
                                                   <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'page tab  Billing Info'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT">
                                                     <ui:Click.CursorPosition>
                                                       <ui:CursorPosition Position="Center">
@@ -1096,6 +1147,21 @@
                                                     </ui:GetValue.Target>
                                                     <ui:GetValue.Value>
                                                       <OutArgument x:TypeArguments="x:Object">[groupDT.Rows(0).Item("Group Code")]</OutArgument>
+                                                    </ui:GetValue.Value>
+                                                  </ui:GetValue>
+                                                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_52">
+                                                    <ui:GetValue.Target>
+                                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="090550be0103cfdec31a0863869f8e1b" Selector="&lt;wnd app='salespro.exe' cls='TMainForm' title='Training - hotel SalesPro Enterprise - [Group]' /&gt;&lt;wnd aaname='Workspace' cls='MDIClient' /&gt;&lt;wnd cls='TfrmGroup' title='Group' /&gt;&lt;wnd cls='TTabSheet' title='Info' /&gt;&lt;wnd cls='TTabSheet' title='Billing Info' /&gt;&lt;wnd cls='TDBEdit' idx='1' /&gt;">
+                                                        <ui:Target.TimeoutMS>
+                                                          <InArgument x:TypeArguments="x:Int32" />
+                                                        </ui:Target.TimeoutMS>
+                                                        <ui:Target.WaitForReady>
+                                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                        </ui:Target.WaitForReady>
+                                                      </ui:Target>
+                                                    </ui:GetValue.Target>
+                                                    <ui:GetValue.Value>
+                                                      <OutArgument x:TypeArguments="x:Object">[groupDT.Rows(0).Item("SRP Type")]</OutArgument>
                                                     </ui:GetValue.Value>
                                                   </ui:GetValue>
                                                   <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_28">
@@ -1218,6 +1284,216 @@
                                                       <OutArgument x:TypeArguments="x:Object">[groupDT.Rows(0).Item("Commissionable")]</OutArgument>
                                                     </ui:GetValue.Value>
                                                   </ui:GetValue>
+                                                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TcxDBCurrencyEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_53">
+                                                    <ui:GetValue.Target>
+                                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="d1b8317743215a62b1a6e4e0bf64f3f8" Selector="&lt;wnd app='salespro.exe' cls='TMainForm' title='Training - hotel SalesPro Enterprise - [Group]' /&gt;&lt;wnd aaname='Workspace' cls='MDIClient' /&gt;&lt;wnd cls='TfrmGroup' title='Group' /&gt;&lt;wnd cls='TTabSheet' title='Info' /&gt;&lt;wnd cls='TTabSheet' title='Billing Info' /&gt;&lt;wnd cls='TcxDBCurrencyEdit' idx='5' /&gt;">
+                                                        <ui:Target.TimeoutMS>
+                                                          <InArgument x:TypeArguments="x:Int32" />
+                                                        </ui:Target.TimeoutMS>
+                                                        <ui:Target.WaitForReady>
+                                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                        </ui:Target.WaitForReady>
+                                                      </ui:Target>
+                                                    </ui:GetValue.Target>
+                                                    <ui:GetValue.Value>
+                                                      <OutArgument x:TypeArguments="x:Object">[groupDT.Rows(0).Item("PMS Food Rev")]</OutArgument>
+                                                    </ui:GetValue.Value>
+                                                  </ui:GetValue>
+                                                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TcxDBCurrencyEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_54">
+                                                    <ui:GetValue.Target>
+                                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="6b857d56aa9eb737403fffa1a0c02da3" Selector="&lt;wnd app='salespro.exe' cls='TMainForm' title='Training - hotel SalesPro Enterprise - [Group]' /&gt;&lt;wnd aaname='Workspace' cls='MDIClient' /&gt;&lt;wnd cls='TfrmGroup' title='Group' /&gt;&lt;wnd cls='TTabSheet' title='Info' /&gt;&lt;wnd cls='TTabSheet' title='Billing Info' /&gt;&lt;wnd cls='TcxDBCurrencyEdit' idx='4' /&gt;">
+                                                        <ui:Target.TimeoutMS>
+                                                          <InArgument x:TypeArguments="x:Int32" />
+                                                        </ui:Target.TimeoutMS>
+                                                        <ui:Target.WaitForReady>
+                                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                        </ui:Target.WaitForReady>
+                                                      </ui:Target>
+                                                    </ui:GetValue.Target>
+                                                    <ui:GetValue.Value>
+                                                      <OutArgument x:TypeArguments="x:Object">[groupDT.Rows(0).Item("PMS Bev Rev")]</OutArgument>
+                                                    </ui:GetValue.Value>
+                                                  </ui:GetValue>
+                                                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TcxDBCurrencyEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_55">
+                                                    <ui:GetValue.Target>
+                                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="96baf43403742b6bf27b9564474c0629" Selector="&lt;wnd app='salespro.exe' cls='TMainForm' title='Training - hotel SalesPro Enterprise - [Group]' /&gt;&lt;wnd aaname='Workspace' cls='MDIClient' /&gt;&lt;wnd cls='TfrmGroup' title='Group' /&gt;&lt;wnd cls='TTabSheet' title='Info' /&gt;&lt;wnd cls='TTabSheet' title='Billing Info' /&gt;&lt;wnd cls='TcxDBCurrencyEdit' idx='3' /&gt;">
+                                                        <ui:Target.TimeoutMS>
+                                                          <InArgument x:TypeArguments="x:Int32" />
+                                                        </ui:Target.TimeoutMS>
+                                                        <ui:Target.WaitForReady>
+                                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                        </ui:Target.WaitForReady>
+                                                      </ui:Target>
+                                                    </ui:GetValue.Target>
+                                                    <ui:GetValue.Value>
+                                                      <OutArgument x:TypeArguments="x:Object">[groupDT.Rows(0).Item("PMS Other Rev")]</OutArgument>
+                                                    </ui:GetValue.Value>
+                                                  </ui:GetValue>
+                                                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TcxDBCurrencyEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_56">
+                                                    <ui:GetValue.Target>
+                                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="ef370b36d5e9c50c20dd8d32060aa157" Selector="&lt;wnd app='salespro.exe' cls='TMainForm' title='Training - hotel SalesPro Enterprise - [Group]' /&gt;&lt;wnd aaname='Workspace' cls='MDIClient' /&gt;&lt;wnd cls='TfrmGroup' title='Group' /&gt;&lt;wnd cls='TTabSheet' title='Info' /&gt;&lt;wnd cls='TTabSheet' title='Billing Info' /&gt;&lt;wnd cls='TcxDBCurrencyEdit' idx='2' /&gt;">
+                                                        <ui:Target.TimeoutMS>
+                                                          <InArgument x:TypeArguments="x:Int32" />
+                                                        </ui:Target.TimeoutMS>
+                                                        <ui:Target.WaitForReady>
+                                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                        </ui:Target.WaitForReady>
+                                                      </ui:Target>
+                                                    </ui:GetValue.Target>
+                                                    <ui:GetValue.Value>
+                                                      <OutArgument x:TypeArguments="x:Object">[groupDT.Rows(0).Item("PMS Room Ngts")]</OutArgument>
+                                                    </ui:GetValue.Value>
+                                                  </ui:GetValue>
+                                                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TcxDBCurrencyEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_57">
+                                                    <ui:GetValue.Target>
+                                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="53c83078a28562ce4aa03056f1cee11d" Selector="&lt;wnd app='salespro.exe' cls='TMainForm' title='Training - hotel SalesPro Enterprise - [Group]' /&gt;&lt;wnd aaname='Workspace' cls='MDIClient' /&gt;&lt;wnd cls='TfrmGroup' title='Group' /&gt;&lt;wnd cls='TTabSheet' title='Info' /&gt;&lt;wnd cls='TTabSheet' title='Billing Info' /&gt;&lt;wnd cls='TcxDBCurrencyEdit' idx='1' /&gt;">
+                                                        <ui:Target.TimeoutMS>
+                                                          <InArgument x:TypeArguments="x:Int32" />
+                                                        </ui:Target.TimeoutMS>
+                                                        <ui:Target.WaitForReady>
+                                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                        </ui:Target.WaitForReady>
+                                                      </ui:Target>
+                                                    </ui:GetValue.Target>
+                                                    <ui:GetValue.Value>
+                                                      <OutArgument x:TypeArguments="x:Object">[groupDT.Rows(0).Item("PMS Room Rev")]</OutArgument>
+                                                    </ui:GetValue.Value>
+                                                  </ui:GetValue>
+                                                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_58">
+                                                    <ui:GetValue.Target>
+                                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="bf607025e01162ac5c4f241c5c2495f0" Selector="&lt;wnd app='salespro.exe' cls='TMainForm' title='Training - hotel SalesPro Enterprise - [Group]' /&gt;&lt;wnd aaname='Workspace' cls='MDIClient' /&gt;&lt;wnd cls='TfrmGroup' title='Group' /&gt;&lt;wnd cls='TTabSheet' title='Info' /&gt;&lt;wnd cls='TTabSheet' title='Billing Info' /&gt;&lt;wnd cls='TDBEdit' idx='2' /&gt;">
+                                                        <ui:Target.TimeoutMS>
+                                                          <InArgument x:TypeArguments="x:Int32" />
+                                                        </ui:Target.TimeoutMS>
+                                                        <ui:Target.WaitForReady>
+                                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                        </ui:Target.WaitForReady>
+                                                      </ui:Target>
+                                                    </ui:GetValue.Target>
+                                                    <ui:GetValue.Value>
+                                                      <OutArgument x:TypeArguments="x:Object">[groupDT.Rows(0).Item("Block Room Nights")]</OutArgument>
+                                                    </ui:GetValue.Value>
+                                                  </ui:GetValue>
+                                                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TcxDBCurrencyEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_59">
+                                                    <ui:GetValue.Target>
+                                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="c09a3c0e4da8c3381786384069656865" Selector="&lt;wnd app='salespro.exe' cls='TMainForm' title='Training - hotel SalesPro Enterprise - [Group]' /&gt;&lt;wnd aaname='Workspace' cls='MDIClient' /&gt;&lt;wnd cls='TfrmGroup' title='Group' /&gt;&lt;wnd cls='TTabSheet' title='Info' /&gt;&lt;wnd cls='TTabSheet' title='Billing Info' /&gt;&lt;wnd cls='TcxDBCurrencyEdit' idx='7' /&gt;">
+                                                        <ui:Target.TimeoutMS>
+                                                          <InArgument x:TypeArguments="x:Int32" />
+                                                        </ui:Target.TimeoutMS>
+                                                        <ui:Target.WaitForReady>
+                                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                        </ui:Target.WaitForReady>
+                                                      </ui:Target>
+                                                    </ui:GetValue.Target>
+                                                    <ui:GetValue.Value>
+                                                      <OutArgument x:TypeArguments="x:Object">[groupDT.Rows(0).Item("Block Room Revenue")]</OutArgument>
+                                                    </ui:GetValue.Value>
+                                                  </ui:GetValue>
+                                                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_60">
+                                                    <ui:GetValue.Target>
+                                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="52970613543c1d67fe223d39c27a494a" Selector="&lt;wnd app='salespro.exe' cls='TMainForm' title='Training - hotel SalesPro Enterprise - [Group]' /&gt;&lt;wnd aaname='Workspace' cls='MDIClient' /&gt;&lt;wnd cls='TfrmGroup' title='Group' /&gt;&lt;wnd cls='TTabSheet' title='Info' /&gt;&lt;wnd cls='TTabSheet' title='Billing Info' /&gt;&lt;wnd cls='TDBEdit' idx='3' /&gt;">
+                                                        <ui:Target.TimeoutMS>
+                                                          <InArgument x:TypeArguments="x:Int32" />
+                                                        </ui:Target.TimeoutMS>
+                                                        <ui:Target.WaitForReady>
+                                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                        </ui:Target.WaitForReady>
+                                                      </ui:Target>
+                                                    </ui:GetValue.Target>
+                                                    <ui:GetValue.Value>
+                                                      <OutArgument x:TypeArguments="x:Object">[groupDT.Rows(0).Item("Block ADR")]</OutArgument>
+                                                    </ui:GetValue.Value>
+                                                  </ui:GetValue>
+                                                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_61">
+                                                    <ui:GetValue.Target>
+                                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="a46fd402a1dd1b9bca29e4ce70e188a2" Selector="&lt;wnd app='salespro.exe' cls='TMainForm' title='Training - hotel SalesPro Enterprise - [Group]' /&gt;&lt;wnd aaname='Workspace' cls='MDIClient' /&gt;&lt;wnd cls='TfrmGroup' title='Group' /&gt;&lt;wnd cls='TTabSheet' title='Info' /&gt;&lt;wnd cls='TTabSheet' title='Billing Info' /&gt;&lt;wnd cls='TDBEdit' idx='8' /&gt;">
+                                                        <ui:Target.TimeoutMS>
+                                                          <InArgument x:TypeArguments="x:Int32" />
+                                                        </ui:Target.TimeoutMS>
+                                                        <ui:Target.WaitForReady>
+                                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                        </ui:Target.WaitForReady>
+                                                      </ui:Target>
+                                                    </ui:GetValue.Target>
+                                                    <ui:GetValue.Value>
+                                                      <OutArgument x:TypeArguments="x:Object">[groupDT.Rows(0).Item("Net Room NIghts")]</OutArgument>
+                                                    </ui:GetValue.Value>
+                                                  </ui:GetValue>
+                                                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TcxDBCurrencyEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_62">
+                                                    <ui:GetValue.Target>
+                                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="f2f69c6df37cc51351693042d0a10f3e" Selector="&lt;wnd app='salespro.exe' cls='TMainForm' title='Training - hotel SalesPro Enterprise - [Group]' /&gt;&lt;wnd aaname='Workspace' cls='MDIClient' /&gt;&lt;wnd cls='TfrmGroup' title='Group' /&gt;&lt;wnd cls='TTabSheet' title='Info' /&gt;&lt;wnd cls='TTabSheet' title='Billing Info' /&gt;&lt;wnd cls='TcxDBCurrencyEdit' idx='17' /&gt;">
+                                                        <ui:Target.TimeoutMS>
+                                                          <InArgument x:TypeArguments="x:Int32" />
+                                                        </ui:Target.TimeoutMS>
+                                                        <ui:Target.WaitForReady>
+                                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                        </ui:Target.WaitForReady>
+                                                      </ui:Target>
+                                                    </ui:GetValue.Target>
+                                                    <ui:GetValue.Value>
+                                                      <OutArgument x:TypeArguments="x:Object">[groupDT.Rows(0).Item("Net Room Revenue")]</OutArgument>
+                                                    </ui:GetValue.Value>
+                                                  </ui:GetValue>
+                                                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_63">
+                                                    <ui:GetValue.Target>
+                                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="08a927c779f64e9c9e06454b15b73759" Selector="&lt;wnd app='salespro.exe' cls='TMainForm' title='Training - hotel SalesPro Enterprise - [Group]' /&gt;&lt;wnd aaname='Workspace' cls='MDIClient' /&gt;&lt;wnd cls='TfrmGroup' title='Group' /&gt;&lt;wnd cls='TTabSheet' title='Info' /&gt;&lt;wnd cls='TTabSheet' title='Billing Info' /&gt;&lt;wnd cls='TDBEdit' idx='7' /&gt;">
+                                                        <ui:Target.TimeoutMS>
+                                                          <InArgument x:TypeArguments="x:Int32" />
+                                                        </ui:Target.TimeoutMS>
+                                                        <ui:Target.WaitForReady>
+                                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                        </ui:Target.WaitForReady>
+                                                      </ui:Target>
+                                                    </ui:GetValue.Target>
+                                                    <ui:GetValue.Value>
+                                                      <OutArgument x:TypeArguments="x:Object">[groupDT.Rows(0).Item("Net ADR")]</OutArgument>
+                                                    </ui:GetValue.Value>
+                                                  </ui:GetValue>
+                                                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_64">
+                                                    <ui:GetValue.Target>
+                                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="3ef00f8595de98d174e7c8b9e168a46a" Selector="&lt;wnd app='salespro.exe' cls='TMainForm' title='Training - hotel SalesPro Enterprise - [Group]' /&gt;&lt;wnd aaname='Workspace' cls='MDIClient' /&gt;&lt;wnd cls='TfrmGroup' title='Group' /&gt;&lt;wnd cls='TTabSheet' title='Info' /&gt;&lt;wnd cls='TTabSheet' title='Billing Info' /&gt;&lt;wnd cls='TDBEdit' idx='6' /&gt;">
+                                                        <ui:Target.TimeoutMS>
+                                                          <InArgument x:TypeArguments="x:Int32" />
+                                                        </ui:Target.TimeoutMS>
+                                                        <ui:Target.WaitForReady>
+                                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                        </ui:Target.WaitForReady>
+                                                      </ui:Target>
+                                                    </ui:GetValue.Target>
+                                                    <ui:GetValue.Value>
+                                                      <OutArgument x:TypeArguments="x:Object">[groupDT.Rows(0).Item("Actual Room Nights")]</OutArgument>
+                                                    </ui:GetValue.Value>
+                                                  </ui:GetValue>
+                                                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TcxDBCurrencyEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_67">
+                                                    <ui:GetValue.Target>
+                                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="0ff921aea79567c66d7f55677b4c3f30" Selector="&lt;wnd app='salespro.exe' cls='TMainForm' title='Training - hotel SalesPro Enterprise - [Group]' /&gt;&lt;wnd aaname='Workspace' cls='MDIClient' /&gt;&lt;wnd cls='TfrmGroup' title='Group' /&gt;&lt;wnd cls='TTabSheet' title='Info' /&gt;&lt;wnd cls='TTabSheet' title='Billing Info' /&gt;&lt;wnd cls='TcxDBCurrencyEdit' idx='16' /&gt;">
+                                                        <ui:Target.TimeoutMS>
+                                                          <InArgument x:TypeArguments="x:Int32" />
+                                                        </ui:Target.TimeoutMS>
+                                                        <ui:Target.WaitForReady>
+                                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                        </ui:Target.WaitForReady>
+                                                      </ui:Target>
+                                                    </ui:GetValue.Target>
+                                                    <ui:GetValue.Value>
+                                                      <OutArgument x:TypeArguments="x:Object">[groupDT.Rows(0).Item("Actual Room Revenue")]</OutArgument>
+                                                    </ui:GetValue.Value>
+                                                  </ui:GetValue>
+                                                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_68">
+                                                    <ui:GetValue.Target>
+                                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="8ea2d10acee806b0b1386efb0bedd31c" Selector="&lt;wnd app='salespro.exe' cls='TMainForm' title='Training - hotel SalesPro Enterprise - [Group]' /&gt;&lt;wnd aaname='Workspace' cls='MDIClient' /&gt;&lt;wnd cls='TfrmGroup' title='Group' /&gt;&lt;wnd cls='TTabSheet' title='Info' /&gt;&lt;wnd cls='TTabSheet' title='Billing Info' /&gt;&lt;wnd cls='TDBEdit' idx='4' /&gt;">
+                                                        <ui:Target.TimeoutMS>
+                                                          <InArgument x:TypeArguments="x:Int32" />
+                                                        </ui:Target.TimeoutMS>
+                                                        <ui:Target.WaitForReady>
+                                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                        </ui:Target.WaitForReady>
+                                                      </ui:Target>
+                                                    </ui:GetValue.Target>
+                                                    <ui:GetValue.Value>
+                                                      <OutArgument x:TypeArguments="x:Object">[groupDT.Rows(0).Item("Actual ADR")]</OutArgument>
+                                                    </ui:GetValue.Value>
+                                                  </ui:GetValue>
                                                   <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TcxDBCurrencyEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_36">
                                                     <ui:GetValue.Target>
                                                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="041e81586f56bc3a68cf8b476a1e1db6" Selector="&lt;wnd app='salespro.exe' cls='TMainForm' title='Training - hotel SalesPro Enterprise - [Group]' /&gt;&lt;wnd aaname='Workspace' cls='MDIClient' /&gt;&lt;wnd cls='TfrmGroup' title='Group' /&gt;&lt;wnd cls='TTabSheet' title='Info' /&gt;&lt;wnd cls='TTabSheet' title='Billing Info' /&gt;&lt;wnd cls='TcxDBCurrencyEdit' idx='11' /&gt;">
@@ -1291,6 +1567,81 @@
                                                     </ui:GetValue.Target>
                                                     <ui:GetValue.Value>
                                                       <OutArgument x:TypeArguments="x:Object">[groupDT.Rows(0).Item("Flat Tax 2")]</OutArgument>
+                                                    </ui:GetValue.Value>
+                                                  </ui:GetValue>
+                                                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TcxDBCurrencyEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_69">
+                                                    <ui:GetValue.Target>
+                                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="e5af5150bc24143df2ac8088d6d484c8" Selector="&lt;wnd app='salespro.exe' cls='TMainForm' title='Training - hotel SalesPro Enterprise - [Group]' /&gt;&lt;wnd aaname='Workspace' cls='MDIClient' /&gt;&lt;wnd cls='TfrmGroup' title='Group' /&gt;&lt;wnd cls='TTabSheet' title='Info' /&gt;&lt;wnd cls='TTabSheet' title='Billing Info' /&gt;&lt;wnd cls='TcxDBCurrencyEdit' idx='12' /&gt;">
+                                                        <ui:Target.TimeoutMS>
+                                                          <InArgument x:TypeArguments="x:Int32" />
+                                                        </ui:Target.TimeoutMS>
+                                                        <ui:Target.WaitForReady>
+                                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                        </ui:Target.WaitForReady>
+                                                      </ui:Target>
+                                                    </ui:GetValue.Target>
+                                                    <ui:GetValue.Value>
+                                                      <OutArgument x:TypeArguments="x:Object">[groupDT.Rows(0).Item("Total")]</OutArgument>
+                                                    </ui:GetValue.Value>
+                                                  </ui:GetValue>
+                                                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TwwDBDateTimePicker'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_70">
+                                                    <ui:GetValue.Target>
+                                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="a0962a40c43e9fb41b4ab8e80252a343" Selector="&lt;wnd app='salespro.exe' cls='TMainForm' title='Training - hotel SalesPro Enterprise - [Group]' /&gt;&lt;wnd aaname='Workspace' cls='MDIClient' /&gt;&lt;wnd cls='TfrmGroup' title='Group' /&gt;&lt;wnd cls='TTabSheet' title='Info' /&gt;&lt;wnd cls='TTabSheet' title='Billing Info' /&gt;&lt;wnd cls='TwwDBDateTimePicker' idx='3' /&gt;">
+                                                        <ui:Target.TimeoutMS>
+                                                          <InArgument x:TypeArguments="x:Int32" />
+                                                        </ui:Target.TimeoutMS>
+                                                        <ui:Target.WaitForReady>
+                                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                        </ui:Target.WaitForReady>
+                                                      </ui:Target>
+                                                    </ui:GetValue.Target>
+                                                    <ui:GetValue.Value>
+                                                      <OutArgument x:TypeArguments="x:Object">[groupDT.Rows(0).Item("Status Date Definite")]</OutArgument>
+                                                    </ui:GetValue.Value>
+                                                  </ui:GetValue>
+                                                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TwwDBDateTimePicker'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_71">
+                                                    <ui:GetValue.Target>
+                                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="8255204c682b95eb6cfaf985ae51fd63" Selector="&lt;wnd app='salespro.exe' cls='TMainForm' title='Training - hotel SalesPro Enterprise - [Group]' /&gt;&lt;wnd aaname='Workspace' cls='MDIClient' /&gt;&lt;wnd cls='TfrmGroup' title='Group' /&gt;&lt;wnd cls='TTabSheet' title='Info' /&gt;&lt;wnd cls='TTabSheet' title='Billing Info' /&gt;&lt;wnd cls='TwwDBDateTimePicker' idx='2' /&gt;">
+                                                        <ui:Target.TimeoutMS>
+                                                          <InArgument x:TypeArguments="x:Int32" />
+                                                        </ui:Target.TimeoutMS>
+                                                        <ui:Target.WaitForReady>
+                                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                        </ui:Target.WaitForReady>
+                                                      </ui:Target>
+                                                    </ui:GetValue.Target>
+                                                    <ui:GetValue.Value>
+                                                      <OutArgument x:TypeArguments="x:Object">[groupDT.Rows(0).Item("Status Date Cancelled")]</OutArgument>
+                                                    </ui:GetValue.Value>
+                                                  </ui:GetValue>
+                                                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_72">
+                                                    <ui:GetValue.Target>
+                                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="a2e6a6761f4efcf0c49c2f148b537fd1" Selector="&lt;wnd app='salespro.exe' cls='TMainForm' title='Training - hotel SalesPro Enterprise - [Group]' /&gt;&lt;wnd aaname='Workspace' cls='MDIClient' /&gt;&lt;wnd cls='TfrmGroup' title='Group' /&gt;&lt;wnd cls='TTabSheet' title='Info' /&gt;&lt;wnd cls='TTabSheet' title='Billing Info' /&gt;&lt;wnd cls='TEdit' /&gt;">
+                                                        <ui:Target.TimeoutMS>
+                                                          <InArgument x:TypeArguments="x:Int32" />
+                                                        </ui:Target.TimeoutMS>
+                                                        <ui:Target.WaitForReady>
+                                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                        </ui:Target.WaitForReady>
+                                                      </ui:Target>
+                                                    </ui:GetValue.Target>
+                                                    <ui:GetValue.Value>
+                                                      <OutArgument x:TypeArguments="x:Object">[groupDT.Rows(0).Item("Last Status")]</OutArgument>
+                                                    </ui:GetValue.Value>
+                                                  </ui:GetValue>
+                                                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TwwDBDateTimePicker'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_73">
+                                                    <ui:GetValue.Target>
+                                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="5d8b38c836a3e8b785bb7abc1ad14c21" Selector="&lt;wnd app='salespro.exe' cls='TMainForm' title='Training - hotel SalesPro Enterprise - [Group]' /&gt;&lt;wnd aaname='Workspace' cls='MDIClient' /&gt;&lt;wnd cls='TfrmGroup' title='Group' /&gt;&lt;wnd cls='TTabSheet' title='Info' /&gt;&lt;wnd cls='TTabSheet' title='Billing Info' /&gt;&lt;wnd cls='TwwDBDateTimePicker' idx='1' /&gt;">
+                                                        <ui:Target.TimeoutMS>
+                                                          <InArgument x:TypeArguments="x:Int32" />
+                                                        </ui:Target.TimeoutMS>
+                                                        <ui:Target.WaitForReady>
+                                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                        </ui:Target.WaitForReady>
+                                                      </ui:Target>
+                                                    </ui:GetValue.Target>
+                                                    <ui:GetValue.Value>
+                                                      <OutArgument x:TypeArguments="x:Object">[groupDT.Rows(0).Item("Date Created")]</OutArgument>
                                                     </ui:GetValue.Value>
                                                   </ui:GetValue>
                                                   <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'page tab  Notes'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT">

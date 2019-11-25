@@ -1,0 +1,106 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Excel_Sample" this:Excel_Sample.sheetId="1mIg3nZ-paMCo3oiuKMZ5KFLW6B0NIGbmcMwAbL-tT5g" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:gadvd="clr-namespace:Google.Apis.Drive.v3.Data;assembly=Google.Apis.Drive.v3" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ug="clr-namespace:UiPath.GSuite;assembly=UiPath.GSuite" xmlns:uga="clr-namespace:UiPath.GSuite.Activities;assembly=UiPath.GSuite.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="sheetName" Type="InArgument(x:String)" />
+    <x:Property Name="sheetId" Type="InArgument(x:String)" />
+    <x:Property Name="excelDataTable" Type="InOutArgument(sd:DataTable)" />
+    <x:Property Name="range" Type="InArgument(x:String)" />
+    <x:Property Name="inputAction" Type="InArgument(x:String)" />
+    <x:Property Name="row" Type="InArgument(s:Array)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>622,1148</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Excel_Sample_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="44">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>Google.Apis.Drive.v3.Data</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="17">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>Google.Apis.Drive.v3</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Excel_Sample" sap:VirtualizedContainerService.HintSize="602,1088" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uga:GSuiteApplicationScope ApiKey="{x:Null}" Password="{x:Null}" ServiceAccountEmail="{x:Null}" AuthenticationType="ServiceAccountKey" CredentialID="venkatramana.gangasagar@archents.com" CredentialSecret="8125390212" DisplayName="GSuite Application Scope" HasDomainWideAccesss="False" sap:VirtualizedContainerService.HintSize="560,996" sap2010:WorkflowViewState.IdRef="GSuiteApplicationScope_1" KeyPath="E:/UIPATH_WorkSpace/salesProSampleCred.json" KeyType="JSON" Services="Drive, Sheets" UserEmail="venkatramana.gangasagar@archents.Com">
+      <uga:GSuiteApplicationScope.Body>
+        <ActivityAction x:TypeArguments="ug:SimpleObjectContainer">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ug:SimpleObjectContainer" Name="GSuiteScope" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="526,910" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="gadvd:File[]" Name="result" />
+              <Variable x:TypeArguments="sd:DataTable" Name="sheettable" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If Condition="[inputAction = &quot;ReadData&quot;]" sap:VirtualizedContainerService.HintSize="484,229" sap2010:WorkflowViewState.IdRef="If_1">
+              <If.Then>
+                <uga:ReadRange AuthScopesInvalid="False" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="334,82" sap2010:WorkflowViewState.IdRef="ReadRange_1" IncludeHeaders="True" Range="[range]" Result="[excelDataTable]" SheetName="[sheetName]" SpreadsheetId="[sheetId]" />
+              </If.Then>
+            </If>
+            <If Condition="[inputAction = &quot;WriteData&quot;]" sap:VirtualizedContainerService.HintSize="484,257" sap2010:WorkflowViewState.IdRef="If_2">
+              <If.Then>
+                <uga:WriteRange AuthScopesInvalid="False" DataTable="[excelDataTable]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,110" sap2010:WorkflowViewState.IdRef="WriteRange_1" IncludeHeaders="False" IsInsideBatchUpdateScope="False" Result="{x:Null}" SheetName="[sheetName]" SpreadsheetId="[sheetId]" StartingCell="[range]" />
+              </If.Then>
+            </If>
+            <If Condition="[inputAction = &quot;AppendData&quot;]" sap:VirtualizedContainerService.HintSize="484,252" sap2010:WorkflowViewState.IdRef="If_3">
+              <If.Then>
+                <uga:AppendRow AuthScopesInvalid="False" CellReference="[range]" DisplayName="Append Row" sap:VirtualizedContainerService.HintSize="334,105" sap2010:WorkflowViewState.IdRef="AppendRow_2" Row="[row]" SheetName="[sheetName]" SpreadsheetId="[sheetId]" />
+              </If.Then>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </uga:GSuiteApplicationScope.Body>
+    </uga:GSuiteApplicationScope>
+  </Sequence>
+</Activity>

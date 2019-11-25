@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="ContactDataRetrieve2" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="ContactDataRetrieve2" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="filePath" Type="InArgument(x:String)" />
   </x:Members>
@@ -8,7 +8,7 @@
   <sap:VirtualizedContainerService.HintSize>262,203</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ContactDataRetrieve2_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="21">
+    <scg:List x:TypeArguments="x:String" Capacity="42">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -30,10 +30,11 @@
       <x:String>UiPath.Core</x:String>
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Xml.Serialization</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="16">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="32">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -50,6 +51,8 @@
       <AssemblyReference>System.Xaml</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="ContactDataRetrieve2" sap:VirtualizedContainerService.HintSize="242,143" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -92,24 +95,51 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="434,260" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" WorkbookPath="[filePath]">
-            <ui:ExcelApplicationScope.Body>
-              <ActivityAction x:TypeArguments="ui:WorkbookApplication">
-                <ActivityAction.Argument>
-                  <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
-                </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,151" sap2010:WorkflowViewState.IdRef="Sequence_2">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <ui:ExcelReadRange AddHeaders="True" DataTable="[contactTable]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" Range="A1:J1" SheetName="Contacts" />
-                </Sequence>
-              </ActivityAction>
-            </ui:ExcelApplicationScope.Body>
-          </ui:ExcelApplicationScope>
-          <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'text  84 Lumber'" sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="GetValue_16">
+          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="512,430" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+            <ui:CommentOut.Body>
+              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="476,352" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="434,260" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" WorkbookPath="[filePath]">
+                  <ui:ExcelApplicationScope.Body>
+                    <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,151" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:ExcelReadRange AddHeaders="True" DataTable="[contactTable]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" Range="A1:J1" SheetName="Contacts" />
+                      </Sequence>
+                    </ActivityAction>
+                  </ui:ExcelApplicationScope.Body>
+                </ui:ExcelApplicationScope>
+              </Sequence>
+            </ui:CommentOut.Body>
+          </ui:CommentOut>
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke ExcelRead_Columns workflow" sap:VirtualizedContainerService.HintSize="512,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" Timeout="{x:Null}" UnSafe="False" WorkflowFileName="ExcelRead_Columns.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="sheetName">Contacts</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="sheetId">1mIg3nZ-paMCo3oiuKMZ5KFLW6B0NIGbmcMwAbL-tT5g</InArgument>
+              <InOutArgument x:TypeArguments="sd:DataTable" x:Key="excelDataTable">
+                <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="contactTable">
+                  <mva:VisualBasicReference.Result>
+                    <OutArgument x:TypeArguments="Location(sd:DataTable)" />
+                  </mva:VisualBasicReference.Result>
+                </mva:VisualBasicReference>
+              </InOutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="range">A1:AH1</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="inputAction">ReadData</InArgument>
+              <InArgument x:TypeArguments="s:Array" x:Key="row" />
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'text  84 Lumber'" sap:VirtualizedContainerService.HintSize="512,106" sap2010:WorkflowViewState.IdRef="GetValue_16">
             <ui:GetValue.Target>
               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="b7ec6334fe07b17b45b56a2cc50ae076" Selector="&lt;wnd app='salespro.exe' cls='TMainForm' title='Training - hotel SalesPro Enterprise - [Account]' /&gt;&lt;wnd cls='TStatusBar' /&gt;&lt;ctrl role='text' idx='1' /&gt;">
                 <ui:Target.TimeoutMS>
@@ -124,7 +154,7 @@
               <OutArgument x:TypeArguments="x:String">[accountName]</OutArgument>
             </ui:GetValue.Value>
           </ui:GetValue>
-          <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'page tab  Contacts'" sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
+          <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'page tab  Contacts'" sap:VirtualizedContainerService.HintSize="512,106" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
             <ui:Click.CursorPosition>
               <ui:CursorPosition Position="Center">
                 <ui:CursorPosition.OffsetX>
@@ -270,6 +300,21 @@
                                   <InArgument x:TypeArguments="x:String">[accountName]</InArgument>
                                 </Assign.Value>
                               </Assign>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_17">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="dea6bb5e749f19ab61a96bde0b49129d" Selector="&lt;wnd app='salespro.exe' cls='TdlgContact' title='Contact' /&gt;&lt;wnd cls='TDBEdit' idx='26' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[contactTable.Rows(0).Item("Contact")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
                               <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_9">
                                 <ui:GetValue.Target>
                                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="4a433f0cf3ecc49d5fadf4da9fb6e48f" Selector="&lt;wnd app='salespro.exe' cls='TdlgContact' title='Contact' /&gt;&lt;wnd cls='TDBEdit' idx='25' /&gt;">
@@ -315,6 +360,21 @@
                                   <OutArgument x:TypeArguments="x:Object">[contactTable.Rows(0).Item("Title")]</OutArgument>
                                 </ui:GetValue.Value>
                               </ui:GetValue>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_18">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="92ff1a0062d569f6e0e0f67ad36b7bfd" Selector="&lt;wnd app='salespro.exe' cls='TdlgContact' title='Contact' /&gt;&lt;wnd cls='TDBEdit' idx='22' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[contactTable.Rows(0).Item("Dear")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
                               <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_12">
                                 <ui:GetValue.Target>
                                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="3182ed01086e135cc042ccf4eb698139" Selector="&lt;wnd app='salespro.exe' cls='TdlgContact' title='Contact' /&gt;&lt;wnd cls='TDBEdit' idx='21' /&gt;">
@@ -345,6 +405,81 @@
                                   <OutArgument x:TypeArguments="x:Object">[contactTable.Rows(0).Item("Dept")]</OutArgument>
                                 </ui:GetValue.Value>
                               </ui:GetValue>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBMemo'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_19">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="dffbeaffb95597e021d10d59f9dc5394" Selector="&lt;wnd app='salespro.exe' cls='TdlgContact' title='Contact' /&gt;&lt;wnd cls='TDBMemo' idx='2' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[contactTable.Rows(0).Item("Address")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_20">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="174aacf90bba1084c3798e35ccc9b1c9" Selector="&lt;wnd app='salespro.exe' cls='TdlgContact' title='Contact' /&gt;&lt;wnd cls='TDBEdit' idx='19' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[contactTable.Rows(0).Item("City")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_21">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="35835b6fd21c60c5808385610edd7fd1" Selector="&lt;wnd app='salespro.exe' cls='TdlgContact' title='Contact' /&gt;&lt;wnd cls='TDBEdit' idx='18' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[contactTable.Rows(0).Item("State")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_22">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="28239f63e69db3a814c8e4d18afd41e7" Selector="&lt;wnd app='salespro.exe' cls='TdlgContact' title='Contact' /&gt;&lt;wnd cls='TDBEdit' idx='17' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[contactTable.Rows(0).Item("Zip")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_23">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="2b627bd038c4d7703d5cf5b6c9d992b5" Selector="&lt;wnd app='salespro.exe' cls='TdlgContact' title='Contact' /&gt;&lt;wnd cls='TDBEdit' idx='16' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[contactTable.Rows(0).Item("Country")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
                               <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_14">
                                 <ui:GetValue.Target>
                                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="2a3a399eb2acddd7f2c19d4aa8503cc9" Selector="&lt;wnd app='salespro.exe' cls='TdlgContact' title='Contact' /&gt;&lt;wnd cls='TDBEdit' idx='15' /&gt;">
@@ -358,6 +493,111 @@
                                 </ui:GetValue.Target>
                                 <ui:GetValue.Value>
                                   <OutArgument x:TypeArguments="x:Object">[contactTable.Rows(0).Item("Phone")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_24">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="d51946d13163d63e884e15d2869127f2" Selector="&lt;wnd app='salespro.exe' cls='TdlgContact' title='Contact' /&gt;&lt;wnd cls='TDBEdit' idx='14' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[contactTable.Rows(0).Item("Ext")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_25">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="a5ac9adbba8dd93962f2885b9f0876b5" Selector="&lt;wnd app='salespro.exe' cls='TdlgContact' title='Contact' /&gt;&lt;wnd cls='TDBEdit' idx='13' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[contactTable.Rows(0).Item("Fax")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_26">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="2a3998e76cf0bd8a8f1d6de90d607c06" Selector="&lt;wnd app='salespro.exe' cls='TdlgContact' title='Contact' /&gt;&lt;wnd cls='TDBEdit' idx='12' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[contactTable.Rows(0).Item("Fax_Ext")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_27">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="41bceaa1b96a5941c561064a9029a504" Selector="&lt;wnd app='salespro.exe' cls='TdlgContact' title='Contact' /&gt;&lt;wnd cls='TDBEdit' idx='11' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[contactTable.Rows(0).Item("Phone 3")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_28">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="eba44394b71f4b826e251949cedcd184" Selector="&lt;wnd app='salespro.exe' cls='TdlgContact' title='Contact' /&gt;&lt;wnd cls='TDBEdit' idx='10' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[contactTable.Rows(0).Item("Phone 3_Ext")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_29">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="30db1f685404f18ea300be93a7ef601b" Selector="&lt;wnd app='salespro.exe' cls='TdlgContact' title='Contact' /&gt;&lt;wnd cls='TDBEdit' idx='9' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[contactTable.Rows(0).Item("Phone 4")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_30">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="b67f1a3bd8b5b4993387a8e039bcb2e1" Selector="&lt;wnd app='salespro.exe' cls='TdlgContact' title='Contact' /&gt;&lt;wnd cls='TDBEdit' idx='8' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[contactTable.Rows(0).Item("Phone 4_Ext")]</OutArgument>
                                 </ui:GetValue.Value>
                               </ui:GetValue>
                               <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_15">
@@ -375,6 +615,21 @@
                                   <OutArgument x:TypeArguments="x:Object">[contactTable.Rows(0).Item("Email")]</OutArgument>
                                 </ui:GetValue.Value>
                               </ui:GetValue>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_31">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="b5b5586fca128df66d36ac8a665e0186" Selector="&lt;wnd app='salespro.exe' cls='TdlgContact' title='Contact' /&gt;&lt;wnd cls='TDBEdit' idx='6' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[contactTable.Rows(0).Item("Web")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
                               <ui:GetVisibleText FormattedText="{x:Null}" WordsInfo="{x:Null}" DisplayName="Get Visible Text 'TwwDBDateTimePicker'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetVisibleText_3">
                                 <ui:GetVisibleText.Target>
                                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="e55c30f28f1e637f5597aaf4030d023c" Selector="&lt;wnd app='salespro.exe' cls='TdlgContact' title='Contact' /&gt;&lt;wnd cls='TwwDBDateTimePicker' idx='2' /&gt;">
@@ -390,6 +645,51 @@
                                   <OutArgument x:TypeArguments="x:Object">[contactTable.Rows(0).Item("Birthday")]</OutArgument>
                                 </ui:GetVisibleText.Text>
                               </ui:GetVisibleText>
+                              <ui:GetVisibleText ContinueOnError="{x:Null}" DisplayName="Get Visible Text 'TwwDBDateTimePicker'" FormattedText="{x:Null}" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetVisibleText_5" Separators="{x:Null}" WordsInfo="{x:Null}">
+                                <ui:GetVisibleText.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="8d909785bc62aa4e26124b7b5be9f032" Selector="&lt;wnd app='salespro.exe' cls='TdlgContact' title='Contact' /&gt;&lt;wnd cls='TwwDBDateTimePicker' idx='1' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetVisibleText.Target>
+                                <ui:GetVisibleText.Text>
+                                  <OutArgument x:TypeArguments="x:Object">[contactTable.Rows(0).Item("Anniversary")]</OutArgument>
+                                </ui:GetVisibleText.Text>
+                              </ui:GetVisibleText>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_32">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="ef05f62eba458b7119b1d215e17a56cb" Selector="&lt;wnd app='salespro.exe' cls='TdlgContact' title='Contact' /&gt;&lt;wnd cls='TDBEdit' idx='5' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[contactTable.Rows(0).Item("Room Pref.")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_33">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="72922d3e631a36994c5e2d5d9faf7dd8" Selector="&lt;wnd app='salespro.exe' cls='TdlgContact' title='Contact' /&gt;&lt;wnd cls='TDBEdit' idx='4' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[contactTable.Rows(0).Item("Pickup")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
                               <ui:GetVisibleText FormattedText="{x:Null}" WordsInfo="{x:Null}" DisplayName="Get Visible Text 'TDBLookupComboBox'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetVisibleText_4">
                                 <ui:GetVisibleText.Target>
                                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="eaa2186d53648075028de0559d4ce58c" Selector="&lt;wnd app='salespro.exe' cls='TdlgContact' title='Contact' /&gt;&lt;wnd cls='TDBLookupComboBox' idx='1' /&gt;">
@@ -405,6 +705,96 @@
                                   <OutArgument x:TypeArguments="x:Object">[contactTable.Rows(0).Item("Type")]</OutArgument>
                                 </ui:GetVisibleText.Text>
                               </ui:GetVisibleText>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBCheckBox'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_34">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="a18ff9d1d942c31ac82e8d2a603119dd" Selector="&lt;wnd app='salespro.exe' cls='TdlgContact' title='Contact' /&gt;&lt;wnd cls='TDBCheckBox' idx='2' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[contactTable.Rows(0).Item("Primary Contact")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_35">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="03357a1891d659535863cafd738aeb4c" Selector="&lt;wnd app='salespro.exe' cls='TdlgContact' title='Contact' /&gt;&lt;wnd cls='TDBEdit' idx='3' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[contactTable.Rows(0).Item("Reference")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_36">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="e601d24a79d3df948feacc6e710f9dfd" Selector="&lt;wnd app='salespro.exe' cls='TdlgContact' title='Contact' /&gt;&lt;wnd cls='TDBEdit' idx='2' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[contactTable.Rows(0).Item("Room Nights")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
+                              <ui:GetVisibleText ContinueOnError="{x:Null}" DisplayName="Get Visible Text 'TDBLookupComboBox'" FormattedText="{x:Null}" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetVisibleText_6" Separators="{x:Null}" WordsInfo="{x:Null}">
+                                <ui:GetVisibleText.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="f036da2635c59505dcd022f043b59fa6" Selector="&lt;wnd app='salespro.exe' cls='TdlgContact' title='Contact' /&gt;&lt;wnd cls='TDBLookupComboBox' idx='1' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetVisibleText.Target>
+                                <ui:GetVisibleText.Text>
+                                  <OutArgument x:TypeArguments="x:Object">[contactTable.Rows(0).Item("Contact_Type")]</OutArgument>
+                                </ui:GetVisibleText.Text>
+                              </ui:GetVisibleText>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TDBEdit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_37">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="43c7aff7665dd7d5e14d8f4de4d14276" Selector="&lt;wnd app='salespro.exe' cls='TdlgContact' title='Contact' /&gt;&lt;wnd cls='TDBEdit' idx='1' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[contactTable.Rows(0).Item("#Meetings Per Year")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
+                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'editable text'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_38">
+                                <ui:GetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="d6f6c7c667566df99da8be84c48e7f8b" Selector="&lt;wnd app='salespro.exe' cls='TdlgContact' title='Contact' /&gt;&lt;wnd cls='TDBMemo' idx='1' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:GetValue.Target>
+                                <ui:GetValue.Value>
+                                  <OutArgument x:TypeArguments="x:Object">[contactTable.Rows(0).Item("Notes")]</OutArgument>
+                                </ui:GetValue.Value>
+                              </ui:GetValue>
                             </Sequence>
                             <FlowStep.Next>
                               <FlowStep x:Name="__ReferenceID5">
@@ -415,14 +805,41 @@
                                     <av:PointCollection x:Key="ConnectorLocation">150,730 120,730 120,270 200,270</av:PointCollection>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <Sequence DisplayName="Append Data To Excel" sap:VirtualizedContainerService.HintSize="376,453" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                <Sequence DisplayName="Append Data To Excel" sap:VirtualizedContainerService.HintSize="478,750" sap2010:WorkflowViewState.IdRef="Sequence_7">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <ui:AppendRange DataTable="[contactTable]" DisplayName="Append Range" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="Contacts" WorkbookPath="[filePath]" />
-                                  <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,285" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+                                    <ui:CommentOut.Body>
+                                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,207" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <ui:AppendRange DataTable="[contactTable]" DisplayName="Append Range" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="Contacts" WorkbookPath="[filePath]" />
+                                      </Sequence>
+                                    </ui:CommentOut.Body>
+                                  </ui:CommentOut>
+                                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke ExcelRead_Columns workflow" sap:VirtualizedContainerService.HintSize="436,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" Timeout="{x:Null}" UnSafe="False" WorkflowFileName="ExcelRead_Columns.xaml">
+                                    <ui:InvokeWorkflowFile.Arguments>
+                                      <InArgument x:TypeArguments="x:String" x:Key="sheetName">Contacts</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="sheetId">1mIg3nZ-paMCo3oiuKMZ5KFLW6B0NIGbmcMwAbL-tT5g</InArgument>
+                                      <InOutArgument x:TypeArguments="sd:DataTable" x:Key="excelDataTable" />
+                                      <InArgument x:TypeArguments="x:String" x:Key="range">A1</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="inputAction">AppendData</InArgument>
+                                      <InArgument x:TypeArguments="s:Array" x:Key="row">
+                                        <mva:VisualBasicValue x:TypeArguments="s:Array" ExpressionText="contactTable.Rows(0).ItemArray">
+                                          <mva:VisualBasicValue.Result>
+                                            <OutArgument x:TypeArguments="s:Array" />
+                                          </mva:VisualBasicValue.Result>
+                                        </mva:VisualBasicValue>
+                                      </InArgument>
+                                    </ui:InvokeWorkflowFile.Arguments>
+                                  </ui:InvokeWorkflowFile>
+                                  <Assign sap:VirtualizedContainerService.HintSize="436,60" sap2010:WorkflowViewState.IdRef="Assign_4">
                                     <Assign.To>
                                       <OutArgument x:TypeArguments="x:Int32">[contactCurrentIndex]</OutArgument>
                                     </Assign.To>
@@ -430,7 +847,7 @@
                                       <InArgument x:TypeArguments="x:Int32">[contactCurrentIndex+1]</InArgument>
                                     </Assign.Value>
                                   </Assign>
-                                  <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  Close'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                  <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  Close'" sap:VirtualizedContainerService.HintSize="436,106" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT">
                                     <ui:Click.CursorPosition>
                                       <ui:CursorPosition Position="Center">
                                         <ui:CursorPosition.OffsetX>
